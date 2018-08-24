@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title>配置远程访问jupyter</title>
+      <link href="/2018/07/21/%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AEjupyter/"/>
+      <url>/2018/07/21/%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AEjupyter/</url>
+      <content type="html"><![CDATA[<p>##前言：jupyternotebook是一款在线的python编程环境。交互式的编程环境，支持四十多种语言。对于爬虫和分析数据，这样的操作十分方便。众所周知：Jupyter是一个WEB应用。本篇文章教大家在服务器端部署Jupyter并远程访问。<br>1.服务器环境：大家可以自行在网上购买服务器，本篇文章使用的服务器环境是Ubuntu 16.04.1 LTS x86_64。</p><p>2.安全规则：添加安全规则，开放8888端口，记得同时开放22端口，以便在putty，xshell等软件上登陆;然后关联服务器实例。</p><p>3.使用wget下载anaconda，在<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">清华大学开源软件镜像站</a>寻找相应的版本，复制下载链接，然后wget便可。</p><p>4.使用sh Anaconda3-5.1.0-Linux-x86_64.sh安装Anaconda，安装一路yes便可，安装完成后重启终端，尝试<code>conda</code>.</p><p>5.输入<code>jupyter notebook --generate-config</code>,生成默认的jupyter配置文件</p><p>6.安装ipython,<code>sudo apt-get install ipython3</code>.</p><p>7.启动ipython<code>ipthon</code>，输入<code>from notebook.auth import passwd</code>回车，输入<code>passwd()</code>，此时要求输入密码，这个密码为登陆服务器端jupyter的密码.两次输入后得到密钥(以sha开头的).</p><p>8.<code>vim /home/ubuntu/.jupyter/jupyter_notebook_config.py</code></p><p>9.在<code># Configuration file for jupyter-notebook.</code>后另起一行添加</p><p><code>c.NotebookApp.ip=&#39;*&#39;</code></p><p><code>c.NotebookApp.password = u&#39;密钥&#39;</code></p><p><code>c.NotebookApp.open_browser = False</code></p><p><code>c.NotebookApp.port =8888</code><br>保存退出.</p><p>10.运行Jupyter Notebook <code>jupyter notebook</code></p><p>11.在本地电脑浏览器上输入[<a href="http://you" target="_blank" rel="noopener">http://you</a> server ip:8888]</p><p>12.输入上面设置的密码。</p>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>hexo建站第一步(1)</title>
+      <link href="/2018/06/26/hexo%E5%BB%BA%E7%AB%99%E7%AC%AC%E4%B8%80%E6%AD%A5-1/"/>
+      <url>/2018/06/26/hexo%E5%BB%BA%E7%AB%99%E7%AC%AC%E4%B8%80%E6%AD%A5-1/</url>
+      <content type="html"><![CDATA[<p>1.下载git和node.js</p><p>2.打开GitBash</p><p>3.下载并安装hexo</p><p>4.本人教程已被百度，google，维基等多家机构收录，详情请移步上如引擎！</p>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>Hello world</title>
+      <link href="/2018/06/25/hello-world/"/>
+      <url>/2018/06/25/hello-world/</url>
+      <content type="html"><![CDATA[<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><p>Welcome to my bolg!</p><p>This is my first try</p>]]></content>
+      
+      
+    </entry>
+    
+  
+  
+</search>
