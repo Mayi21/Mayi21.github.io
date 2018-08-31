@@ -5,9 +5,9 @@
   <subtitle>my hearts will go on!</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://mayi21.github.io/"/>
   <updated>2018-07-21T10:03:38.208Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://mayi21.github.io/</id>
   
   <author>
     <name>Mayi21</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>配置远程访问jupyter</title>
-    <link href="http://yoursite.com/2018/07/21/%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AEjupyter/"/>
-    <id>http://yoursite.com/2018/07/21/配置远程访问jupyter/</id>
+    <link href="https://mayi21.github.io/2018/07/21/%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AEjupyter/"/>
+    <id>https://mayi21.github.io/2018/07/21/配置远程访问jupyter/</id>
     <published>2018-07-21T09:58:08.241Z</published>
     <updated>2018-07-21T10:03:38.208Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>hexo建站第一步(1)</title>
-    <link href="http://yoursite.com/2018/06/26/hexo%E5%BB%BA%E7%AB%99%E7%AC%AC%E4%B8%80%E6%AD%A5-1/"/>
-    <id>http://yoursite.com/2018/06/26/hexo建站第一步-1/</id>
+    <link href="https://mayi21.github.io/2018/06/26/hexo%E5%BB%BA%E7%AB%99%E7%AC%AC%E4%B8%80%E6%AD%A5-1/"/>
+    <id>https://mayi21.github.io/2018/06/26/hexo建站第一步-1/</id>
     <published>2018-06-26T14:16:33.000Z</published>
     <updated>2018-07-14T13:54:02.545Z</updated>
     
@@ -64,8 +64,8 @@
   
   <entry>
     <title>Hello world</title>
-    <link href="http://yoursite.com/2018/06/25/hello-world/"/>
-    <id>http://yoursite.com/2018/06/25/hello-world/</id>
+    <link href="https://mayi21.github.io/2018/06/25/hello-world/"/>
+    <id>https://mayi21.github.io/2018/06/25/hello-world/</id>
     <published>2018-06-25T01:45:54.730Z</published>
     <updated>2018-06-26T14:34:47.994Z</updated>
     
