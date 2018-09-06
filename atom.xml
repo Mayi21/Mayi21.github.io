@@ -62,26 +62,4 @@
     
   </entry>
   
-  <entry>
-    <title>Hello world</title>
-    <link href="https://mayi21.github.io/2018/06/25/hello-world/"/>
-    <id>https://mayi21.github.io/2018/06/25/hello-world/</id>
-    <published>2018-06-25T01:45:54.730Z</published>
-    <updated>2018-06-26T14:34:47.994Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><p>Welcome to my bolg!</p><p>This is my first try</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Hello-World&quot;&gt;&lt;a href=&quot;#Hello-World&quot; class=&quot;headerlink&quot; title=&quot;Hello World&quot;&gt;&lt;/a&gt;Hello World&lt;/h2&gt;&lt;p&gt;Welcome to my bolg!&lt;/p&gt;
-&lt;p&gt;This is
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
 </feed>
