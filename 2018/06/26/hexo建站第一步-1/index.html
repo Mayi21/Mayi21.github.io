@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="wiki">
 <meta property="og:description" content="1.下载git和node.js 2.打开GitBash 3.下载并安装hexo 4.新建一个文件夹，hexo inital先初始化一下该目录 5.自己找合适的主题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-21T07:01:05.824Z">
+<meta property="og:updated_time" content="2018-09-21T14:09:15.260Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo建站第一步(1)">
 <meta name="twitter:description" content="1.下载git和node.js 2.打开GitBash 3.下载并安装hexo 4.新建一个文件夹，hexo inital先初始化一下该目录 5.自己找合适的主题">
@@ -169,6 +169,11 @@
 <p>8.有域名后，在你的博客source目录下，添加名字为<code>CNAME</code>（注意没有后缀）的文件，里面的内容就是你的域名。然后<code>hexo g</code>和<code>hexo d</code>下。继而进入DNSPOD把自己的域名解析一下。</p>
 <p>9.主要先登录，qq，微信都可以。登录上，进入管理控制台，添加自己的域名到域名解析。添加记录的每一项，系统都会提示代表意思，这里主要解释记录类型<br>A记录：地址记录，用来指定域名的IP地址<br>CNAME记录：如果需要将域名指向另一个域名，再由另一个域名提供IP地址，就需要添加CNAME记录<br>NS记录：域名服务器记录，如果需要把子域名交给其他DNS服务商解析，就需要添加NS记录<br>上面的NS记录是系统默认添加的。<br>A记录就是指向对应IP地址，这里的<code>192.30.252.153</code>和<code>192.30.252.154</code>是github的服务器IP地址。<br>CNAME记录这里可填可不填，因为A记录已经将<code>mayi21.tk</code>和<code>mayi21.github.io</code>的域名统一为一个IP地址了。有一种情况就是为了提高访问速度，要区分国内国外不同用户使用不同的网站进行重定向需要添加对应的CNAME记录。</p>
 <p>10.然后继续输入你的<code>name.github.io</code>，就会跳转到你绑定的域名中。</p>
+<hr>
+<p>google收录</p>
+<p>1.打开<a href="https://www.google.com/webmasters" target="_blank" rel="noopener">谷歌搜索引擎验证</a></p>
+<p>2.输入自己的博客地址，添加属性，我用的是域名服务商验证，把google提供的文本，按照提示添加进入DNSPOD就行了</p>
+<p>3.点击验证,应该就可以成功了</p>
 
         </div>
 
