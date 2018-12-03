@@ -137,12 +137,12 @@
     
     
         <div class='post-wrapper'>
-    <article class="post revealno-title">
+    <article class="post reveal">
     <section class="meta">
         <h2 class="title">
             <a href="/2018/12/03/idea开发hadoop/">
                 
-                    2018-12-03 星期一
+                    idea开发hadoop
                 
             </a>
         </h2>
@@ -154,8 +154,7 @@
     </section>
 
     <section class="article typo">
-        <hr>
-<h2 id="title-idea搭建hadoop本地开发"><a href="#title-idea搭建hadoop本地开发" class="headerlink" title="title:idea搭建hadoop本地开发"></a>title:idea搭建hadoop本地开发</h2><p>下载idea和hadopp源码包<br>新建一个java project，用于hadoop开发，同时需要导入hadoop的相关依赖包<br>java project建成后，点击project structure，进入Dependencies，点击右边的+，点击JARs or directories…,添加依赖，这些依赖都可以在share/hadoop下面找到<br><code>common</code><br><code>hdfs</code><br><code>mapreduce</code><br><code>yarn</code><br><code>common/lib</code><br>然后是Artifacts,点击+,添加JAR&gt;Empty,名称自定义，然后点击+，点击Module output,在弹出的对话框选择当前的项目，点击保存。<br>接着新建一个Application，Edit Configurations，点击+，新建一个Application，在Main Class中填入<br><code>org.apache.hadoop.util.RunJar</code><br>Working directory当然是选择当前项目的目录了， Program arguments  这个是设置默认参数的会在程序执行的时候传递进去<br>
+        <p>下载idea和hadopp源码包<br>新建一个java project，用于hadoop开发，同时需要导入hadoop的相关依赖包<br>java project建成后，点击project structure，进入Dependencies，点击右边的+，点击JARs or<br>
         
             <div class="readmore">
                 <a href="/2018/12/03/idea开发hadoop/" class="flat-box">READ MORE</a>
@@ -186,7 +185,7 @@
     </section>
 
     <section class="article typo">
-        <p>##前言：jupyternotebook是一款在线的python编程环境。交互式的编程环境，支持四十多种语言。对于爬虫和分析数据，这样的操作十分方便。众所周知：Jupyter是一个WEB应用。本篇文章教大家在服务器端部署Jupyter并远程访问。<br>1.服务器环境：大家可以自行在网上购买服务器，本篇文章使用的服务器环境是Ubuntu 16.04.1 LTS x86_64。<br>2.安全规则：添加安全规则，开放8888端口，记得同时开放22端口，以便在putty，xshell等软件上登陆;然后关联服务器实例。<br>3.使用wget下载anaconda，在<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">清华大学开源软件镜像站</a>寻找相应的版本，复制下载链接，然后wget便可。<br>4.使用sh Anaconda3-5.1.0-Linux-x86_64.sh安装Anaconda，安装一路yes便可，安装完成后重启终端，尝试<code>conda</code>.<br>5.输入<code>jupyter notebook --generate-config</code>,生成默认的jupyter配置文件<br>
+        <p>##前言：jupyternotebook是一款在线的python编程环境。交互式的编程环境，支持四十多种语言。对于爬虫和分析数据，这样的操作十分方便。众所周知：Jupyter是一个WEB应用。本篇文章教大家在服务器端部署Jupyter并远程访问。<br>1.服务器环境：大家可以自行在网上购买服务器，本篇文章使用的服务器环境是Ubuntu 16.04.1 LTS x86_64。<br>2.安全规则：添加安全规则，开放8888端口，记得同时开放22端口，以便在putty，xshell等软件上登陆;然后关联服务器实例。<br>
         
             <div class="readmore">
                 <a href="/2018/07/21/配置远程访问jupyter/" class="flat-box">READ MORE</a>
@@ -217,11 +216,7 @@
     </section>
 
     <section class="article typo">
-        <p>1.下载git和node.js</p>
-<p>2.打开GitBash</p>
-<p>3.下载并安装hexo</p>
-<p>4.新建一个文件夹，hexo inital先初始化一下该目录</p>
-<p>5.自己找合适的主题</p>
+        <p>1.下载git和node.js<br>2.打开GitBash<br>3.下载并安装hexo<br>
         
             <div class="readmore">
                 <a href="/2018/06/26/hexo建站第一步-1/" class="flat-box">READ MORE</a>
