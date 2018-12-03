@@ -155,9 +155,11 @@
 
     <section class="article typo">
         <hr>
-<h2 id="title-idea配置hadoop"><a href="#title-idea配置hadoop" class="headerlink" title="title:idea配置hadoop"></a>title:idea配置hadoop</h2><p>下载idea和hadopp源码包<br>新建一个java project，用于hadoop开发，同时需要导入hadoop的相关依赖包<br>java project建成后，点击project structure，进入Dependencies，点击右边的+，点击JARs or directories…,添加依赖，这些依赖都可以在share/hadoop下面找到<br><code>common</code><br><code>hdfs</code><br><code>mapreduce</code><br><code>yarn</code><br><code>common/lib</code><br>然后是Artifacts,点击+,添加JAR&gt;Empty,名称自定义，然后点击+，点击Module output,在弹出的对话框选择当前的项目，点击保存。<br>接着新建一个Application，Edit Configurations，点击+，新建一个Application，在Main Class中填入<br><code>org.apache.hadoop.util.RunJar</code><br>Working directory当然是选择当前项目的目录了， Program arguments  这个是设置默认参数的会在程序执行的时候传递进去</p>
-<p><code>/home/edmond/workspace/IdeaProjects/Hadoop/HadoopWordCount/out/artifacts/wordcount/wordcount.jar</code><br><code>com.company.Main</code><br><code>input</code><br><code>output</code><br>第一个是jar包所在的位置<br>第二个是Main函数所在的类<br>第三四两个参数是由自己决定的（这两个参数会作为args[0]和args[1]传入）<br>点击ok保存。<br>自己写mapper和reducer测试吧！</p>
-
+<h2 id="title-idea搭建hadoop本地开发"><a href="#title-idea搭建hadoop本地开发" class="headerlink" title="title:idea搭建hadoop本地开发"></a>title:idea搭建hadoop本地开发</h2><p>下载idea和hadopp源码包<br>新建一个java project，用于hadoop开发，同时需要导入hadoop的相关依赖包<br>java project建成后，点击project structure，进入Dependencies，点击右边的+，点击JARs or directories…,添加依赖，这些依赖都可以在share/hadoop下面找到<br><code>common</code><br><code>hdfs</code><br><code>mapreduce</code><br><code>yarn</code><br><code>common/lib</code><br>然后是Artifacts,点击+,添加JAR&gt;Empty,名称自定义，然后点击+，点击Module output,在弹出的对话框选择当前的项目，点击保存。<br>接着新建一个Application，Edit Configurations，点击+，新建一个Application，在Main Class中填入<br><code>org.apache.hadoop.util.RunJar</code><br>Working directory当然是选择当前项目的目录了， Program arguments  这个是设置默认参数的会在程序执行的时候传递进去<br>
+        
+            <div class="readmore">
+                <a href="/2018/12/03/idea开发hadoop/" class="flat-box">READ MORE</a>
+            </div>
         
 
         
