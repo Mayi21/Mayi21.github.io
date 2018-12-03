@@ -12,17 +12,17 @@
   <link rel="shortcut icon" href="/">
   <link rel="alternate" href="/atom.xml" title="wiki">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="google-site-verification: googlea6b07bee95a649f7.html">
-<meta property="og:type" content="website">
+  <meta name="description" content="title:idea配置hadoop下载idea和hadopp源码包新建一个java project，用于hadoop开发，同时需要导入hadoop的相关依赖包java project建成后，点击project structure，进入Dependencies，点击右边的+，点击JARs or directories…,添加依赖，这些依赖都可以在share/hadoop下面找到commonhdf">
+<meta property="og:type" content="article">
 <meta property="og:title" content="wiki">
-<meta property="og:url" content="https://mayi21.github.io/googlea6b07bee95a649f7.html">
+<meta property="og:url" content="https://mayi21.github.io/2018/12/03/idea开发hadoop/index.html">
 <meta property="og:site_name" content="wiki">
-<meta property="og:description" content="google-site-verification: googlea6b07bee95a649f7.html">
+<meta property="og:description" content="title:idea配置hadoop下载idea和hadopp源码包新建一个java project，用于hadoop开发，同时需要导入hadoop的相关依赖包java project建成后，点击project structure，进入Dependencies，点击右边的+，点击JARs or directories…,添加依赖，这些依赖都可以在share/hadoop下面找到commonhdf">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-21T13:11:57.692Z">
+<meta property="og:updated_time" content="2018-12-03T08:54:53.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wiki">
-<meta name="twitter:description" content="google-site-verification: googlea6b07bee95a649f7.html">
+<meta name="twitter:description" content="title:idea配置hadoop下载idea和hadopp源码包新建一个java project，用于hadoop开发，同时需要导入hadoop的相关依赖包java project建成后，点击project structure，进入Dependencies，点击右边的+，点击JARs or directories…,添加依赖，这些依赖都可以在share/hadoop下面找到commonhdf">
 
   <link rel="shortcut icon" href="" />
   <link rel="icon" href="" />
@@ -132,30 +132,52 @@
   <div class="l_body">
     <div class='container clearfix'>
       <div class='l_main'>
-        <article id="page-" class="post white-box article-type-page" itemscope itemprop="blogPost">
+        <article id="post-idea开发hadoop" class="post white-box article-type-post" itemscope itemprop="blogPost">
     <section class='meta'>
         <h1 class="title">
             
-                2018-09-21 星期五
+                2018-12-03 星期一
             
         </h1>
         <time>
-            2018-09-21 星期五&nbsp;&nbsp;
+            2018-12-03 星期一&nbsp;&nbsp;
             <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
         </time>
         
 
     </section>
     
+        <section class="toc-wrapper">
+            <div class="header"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class='content'>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-idea配置hadoop"><span class="toc-number">1.</span> <span class="toc-text">title:idea配置hadoop</span></a></li></ol>
+            </div>
+        </section>
+    
 
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            google-site-verification: googlea6b07bee95a649f7.html
+            <hr>
+<h2 id="title-idea配置hadoop"><a href="#title-idea配置hadoop" class="headerlink" title="title:idea配置hadoop"></a>title:idea配置hadoop</h2><p>下载idea和hadopp源码包<br>新建一个java project，用于hadoop开发，同时需要导入hadoop的相关依赖包<br>java project建成后，点击project structure，进入Dependencies，点击右边的+，点击JARs or directories…,添加依赖，这些依赖都可以在share/hadoop下面找到<br><code>common</code><br><code>hdfs</code><br><code>mapreduce</code><br><code>yarn</code><br><code>common/lib</code><br>然后是Artifacts,点击+,添加JAR&gt;Empty,名称自定义，然后点击+，点击Module output,在弹出的对话框选择当前的项目，点击保存。<br>接着新建一个Application，Edit Configurations，点击+，新建一个Application，在Main Class中填入<br><code>org.apache.hadoop.util.RunJar</code><br>Working directory当然是选择当前项目的目录了， Program arguments  这个是设置默认参数的会在程序执行的时候传递进去</p>
+<p><code>/home/edmond/workspace/IdeaProjects/Hadoop/HadoopWordCount/out/artifacts/wordcount/wordcount.jar</code><br><code>com.company.Main</code><br><code>input</code><br><code>output</code><br>第一个是jar包所在的位置<br>第二个是Main函数所在的类<br>第三四两个参数是由自己决定的（这两个参数会作为args[0]和args[1]传入）<br>点击ok保存。<br>自己写mapper和reducer测试吧！</p>
+
         </div>
 
         
 
+        
+            <div class="art-item-footer">
+                
+                
+                    <span class="art-item-right">
+                        <a href="/2018/07/21/配置远程访问jupyter/" rel="next" title="配置远程访问jupyter">
+                            配置远程访问jupyter
+                        </a>&nbsp;
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </span>
+                
+            </div>
         
 
     </section>
@@ -173,6 +195,7 @@
         tools: true
     }
 </script>
+
 
       </div>
       <aside class='l_side'>

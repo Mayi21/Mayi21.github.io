@@ -137,6 +137,36 @@
     
     
         <div class='post-wrapper'>
+    <article class="post revealno-title">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2018/12/03/idea开发hadoop/">
+                
+                    2018-12-03 星期一
+                
+            </a>
+        </h2>
+        <time>
+            2018-12-03 星期一
+        </time>
+        
+
+    </section>
+
+    <section class="article typo">
+        <hr>
+<h2 id="title-idea配置hadoop"><a href="#title-idea配置hadoop" class="headerlink" title="title:idea配置hadoop"></a>title:idea配置hadoop</h2><p>下载idea和hadopp源码包<br>新建一个java project，用于hadoop开发，同时需要导入hadoop的相关依赖包<br>java project建成后，点击project structure，进入Dependencies，点击右边的+，点击JARs or directories…,添加依赖，这些依赖都可以在share/hadoop下面找到<br><code>common</code><br><code>hdfs</code><br><code>mapreduce</code><br><code>yarn</code><br><code>common/lib</code><br>然后是Artifacts,点击+,添加JAR&gt;Empty,名称自定义，然后点击+，点击Module output,在弹出的对话框选择当前的项目，点击保存。<br>接着新建一个Application，Edit Configurations，点击+，新建一个Application，在Main Class中填入<br><code>org.apache.hadoop.util.RunJar</code><br>Working directory当然是选择当前项目的目录了， Program arguments  这个是设置默认参数的会在程序执行的时候传递进去</p>
+<p><code>/home/edmond/workspace/IdeaProjects/Hadoop/HadoopWordCount/out/artifacts/wordcount/wordcount.jar</code><br><code>com.company.Main</code><br><code>input</code><br><code>output</code><br>第一个是jar包所在的位置<br>第二个是Main函数所在的类<br>第三四两个参数是由自己决定的（这两个参数会作为args[0]和args[1]传入）<br>点击ok保存。<br>自己写mapper和reducer测试吧！</p>
+
+        
+
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class='post-wrapper'>
     <article class="post reveal">
     <section class="meta">
         <h2 class="title">
@@ -211,7 +241,7 @@
         
   <section class='m_widget about'>
    
-        <img class='avatar waves-image' src='http://mayi21.oss-cn-beijing.aliyuncs.com/images/avatar.jpg?Expires=1535755957&OSSAccessKeyId=TMP.AQEUxTjyJiuRZSHk6AjFca8kvynGWJxOS9HLO6rAznOPtGkybVr3CdlrJ9bxADAtAhR4ZJWd0RAPqmF02Vf5y8kRqpq8hQIVAIJXPIHwKdDMDCcQXOtwKF4Y0T5g&Signature=IvToF%2F%2B5ilm9TAedaZr22XbY66o%3D' />
+        <img class='avatar waves-image' src='https://obs-7c1d.obs.cn-north-1.myhwclouds.com:443/image/avatar.jpg?AccessKeyId=AGJHRH1P68D165D966R0&Expires=1539158090&Signature=e3mAFA%2FE6rVILem9zlUb0FrgP8s%3D&x-obs-security-token=gQpjbi1ub3J0aC0xjv-cXGZNmoregGX4yp8Y76Ein38-eD1-X3xWTptNDTi2Q9tSE0hHhDJ7Ra0xIhIKrU1oI00a7-CSM2xizt0sN3FZIMldWACDCpmdPPy6hBB-NORrWn9y06YBlSNHHwrHPC34NL9sA768-2xEu9AxiaOZL5mrGybItbj9sCRMbrC1oeyfSmM_jBxu34BBG_nbVJnGdzove0vNuEwq3lg5oUNmfyFhjqAOCExauSRBcoXtLLdOc3LiuzVUJvXjtljsSEV0LfSDw2XY4WPvW2-MX3-0h9uKHD30OkT-Q3W2XSCoNCpC3vrZkvCu7A2htrkCyGKwRWvld67kFUld2SMSUamePizdh5OC7ycz74dUSA1XzuLrT40A4lHDOW_C2UKzrKmtELlsGTpsVtw9VpuBD1r6JHmbZnFYpkr_dZGAwBpEyZ2yb-qDJ1jG5ujrjwSQF_pMlJracE20YA-BXoY1adYt3tvYYVNxHZ2llmd8uP2vkc_2xuChVZKPFVcDRnAi0ah9P-jlBvA2Mnz2LM5iobV6jg46MvBXXG_FIiral8ok9JPDTLvPruNDM3yg4bke7eKzL-q4bBnVJR_gqWmi3EIz1UzXccxcTzW_z7Dhn4KNbQtbU8L_oBSfSHEpwkFHf1PtowvLH_H6oGffFT95FE401pTYrKGtzKeakuMWFk-zEV--1m9sQSWG1WM81qkfvQCiASoygyaWz1StWZqABvA%3D'/>
     
 </section>
 
