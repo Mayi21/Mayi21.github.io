@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Archives | wiki</title>
+  <title>Tag: Tensorflow | wiki</title>
   <meta name="description" content="坚持不懈的坚持" />
   <meta name="keywords" content="" />
   <meta name="HandheldFriendly" content="True" />
@@ -15,7 +15,7 @@
   <meta name="description" content="坚持不懈的坚持">
 <meta property="og:type" content="website">
 <meta property="og:title" content="wiki">
-<meta property="og:url" content="https://mayi21.github.io/archives/index.html">
+<meta property="og:url" content="https://mayi21.github.io/tags/Tensorflow/index.html">
 <meta property="og:site_name" content="wiki">
 <meta property="og:description" content="坚持不懈的坚持">
 <meta property="og:locale" content="zh-CN">
@@ -125,56 +125,55 @@
     <div class='container clearfix'>
       <div class='l_main'>
         
-  <article id="archive-page" class="post article white-box">
-    <section class="archive">
-      
-            <div class="archive-item archive-year mark">
-                <h2>
-                    2019
-                </h2>
-                <hr>
-            </div>
-      
-          <div class="archive-item archive-post mark">
+    <script>
+        window.subData= { title:'tag : Tensorflow'}
+    </script>
+
+
+<section class="post-list">
+    
+    
+        <div class='post-wrapper'>
+    <article class="post reveal">
+    <section class="meta">
+        <h2 class="title">
             <a href="/2019/02/17/Tensorflow构建自定义的图片分类器/">
-              <time>02-17</time>
-              <span class="title"><span>利用Tensorflow构建自定义的图片分类器</span></span>
+                
+                    利用Tensorflow构建自定义的图片分类器
+                
             </a>
-          </div>
-      
-            <div class="archive-item archive-year mark">
-                <h2>
-                    2018
-                </h2>
-                <hr>
-            </div>
-      
-          <div class="archive-item archive-post mark">
-            <a href="/2018/12/03/idea开发hadoop/">
-              <time>12-03</time>
-              <span class="title"><span>idea开发hadoop</span></span>
-            </a>
-          </div>
-      
-          <div class="archive-item archive-post mark">
-            <a href="/2018/07/21/配置远程访问jupyter/">
-              <time>07-21</time>
-              <span class="title"><span>配置远程访问jupyter</span></span>
-            </a>
-          </div>
-      
-          <div class="archive-item archive-post mark">
-            <a href="/2018/06/26/hexo建站第一步-1/">
-              <time>06-26</time>
-              <span class="title"><span>hexo建站第一步(1)</span></span>
-            </a>
-          </div>
-      
+        </h2>
+        <time>
+            2019-02-17 星期日
+        </time>
+        
+    
+    <div class='cats'>
+        <a href="/categories/python/">python</a>
+    </div>
+
+
     </section>
-  </article>
-  <!--
-  
-    -->
+
+    <section class="article typo">
+        <h3 id="操作环境：Ubuntu-18-04-Tensorflow-1-7"><a href="#操作环境：Ubuntu-18-04-Tensorflow-1-7" class="headerlink" title="操作环境：Ubuntu 18.04 Tensorflow 1.7"></a>操作环境：Ubuntu 18.04 Tensorflow 1.7</h3><p>1.安装配置Tensorflow或者利用Docker.Tensorflow的安装这里不予多介绍，主要介绍一下Docker的用法。<br>Docker的操作命令如下:<br><code>docker pull tensorflow/tensorflow</code><br><code>#指定宿主机的目录和容器的目录，实现文件共享</code><br><code>docker run -it -v /root:/root tensorflow/tensorflow</code><br>2.克隆Git<br><code>git clone https://github.com/googlecodelabs/tensorflow-for-poets-2</code><br><code>cd tensorflow-for-poets-2</code><br>3.准备训练数据，将这些数据存放在tf_files文件夹下，这些数据要求：这个tf_files/&lt;自定义文件夹&gt;下面是子文件夹，子文件夹下面是同种类型的图片(如果是人，那该文件下就是这个人的所有图片，子文件夹的名字就是这些图片的名字)<br>4.准备训练数据。定义图片的大小，<br><code>export IMAGE_SIZE=224</code><br><code>export ARCHITECTURE=&quot;mobilenet_0.50_${IMAGE_SIZE}&quot;</code><br>开始训练。<br><code>python -m scripts.retrain --bottleneck_dir=tf_files/bottlenecks --how_many_training_steps=500 --model_dir=tf_files/models/ --summaries_dir=tf_files/training_summaries/&quot;${ARCHITECTURE}&quot; --output_graph=tf_files/retrained_graph.pb --output_labels=tf_files/retrained_labels.txt --architecture=&quot;${ARCHITECTURE}&quot; --image_dir=tf_files/&lt;自定义的文件夹&gt;</code><br>–how_many_training_steps=500 这个是训练多少步。这里可以不用这个命令，使用默认步数4000步<br>5.验证数据。<br><code>python -m scripts.label_image --graph=tf_files/retrained_graph.pb --image=&lt;自己想检测的图片&gt;</code><br>然后下面就会出现验证的结果。</p>
+
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/Tensorflow/"><i class="fa fa-tag"></i>&nbsp;&nbsp;Tensorflow</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+</section>
+
 
 
       </div>

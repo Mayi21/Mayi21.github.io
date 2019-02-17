@@ -133,6 +133,45 @@
     <article class="post reveal">
     <section class="meta">
         <h2 class="title">
+            <a href="/2019/02/17/Tensorflow构建自定义的图片分类器/">
+                
+                    利用Tensorflow构建自定义的图片分类器
+                
+            </a>
+        </h2>
+        <time>
+            2019-02-17 星期日
+        </time>
+        
+    
+    <div class='cats'>
+        <a href="/categories/python/">python</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        <h3 id="操作环境：Ubuntu-18-04-Tensorflow-1-7"><a href="#操作环境：Ubuntu-18-04-Tensorflow-1-7" class="headerlink" title="操作环境：Ubuntu 18.04 Tensorflow 1.7"></a>操作环境：Ubuntu 18.04 Tensorflow 1.7</h3><p>1.安装配置Tensorflow或者利用Docker.Tensorflow的安装这里不予多介绍，主要介绍一下Docker的用法。<br>Docker的操作命令如下:<br><code>docker pull tensorflow/tensorflow</code><br><code>#指定宿主机的目录和容器的目录，实现文件共享</code><br><code>docker run -it -v /root:/root tensorflow/tensorflow</code><br>2.克隆Git<br><code>git clone https://github.com/googlecodelabs/tensorflow-for-poets-2</code><br><code>cd tensorflow-for-poets-2</code><br>3.准备训练数据，将这些数据存放在tf_files文件夹下，这些数据要求：这个tf_files/&lt;自定义文件夹&gt;下面是子文件夹，子文件夹下面是同种类型的图片(如果是人，那该文件下就是这个人的所有图片，子文件夹的名字就是这些图片的名字)<br>4.准备训练数据。定义图片的大小，<br><code>export IMAGE_SIZE=224</code><br><code>export ARCHITECTURE=&quot;mobilenet_0.50_${IMAGE_SIZE}&quot;</code><br>开始训练。<br><code>python -m scripts.retrain --bottleneck_dir=tf_files/bottlenecks --how_many_training_steps=500 --model_dir=tf_files/models/ --summaries_dir=tf_files/training_summaries/&quot;${ARCHITECTURE}&quot; --output_graph=tf_files/retrained_graph.pb --output_labels=tf_files/retrained_labels.txt --architecture=&quot;${ARCHITECTURE}&quot; --image_dir=tf_files/&lt;自定义的文件夹&gt;</code><br>–how_many_training_steps=500 这个是训练多少步。这里可以不用这个命令，使用默认步数4000步<br>5.验证数据。<br><code>python -m scripts.label_image --graph=tf_files/retrained_graph.pb --image=&lt;自己想检测的图片&gt;</code><br>然后下面就会出现验证的结果。</p>
+
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/Tensorflow/"><i class="fa fa-tag"></i>&nbsp;&nbsp;Tensorflow</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class='post-wrapper'>
+    <article class="post reveal">
+    <section class="meta">
+        <h2 class="title">
             <a href="/2018/12/03/idea开发hadoop/">
                 
                     idea开发hadoop
@@ -145,7 +184,7 @@
         
     
     <div class='cats'>
-        <a href="/categories/hadoop/">hadoop</a>
+        <a href="/categories/Java/">Java</a>
     </div>
 
 
@@ -275,9 +314,9 @@
     
     <ul class="entry">
     
-        <li><a class="flat-box" href="/categories/hadoop/"><div class='name'>hadoop</div><div class='badge'>1</div></a></li>
+        <li><a class="flat-box" href="/categories/Java/"><div class='name'>Java</div><div class='badge'>1</div></a></li>
     
-        <li><a class="flat-box" href="/categories/python/"><div class='name'>python</div><div class='badge'>1</div></a></li>
+        <li><a class="flat-box" href="/categories/python/"><div class='name'>python</div><div class='badge'>2</div></a></li>
     
         <li><a class="flat-box" href="/categories/建站/"><div class='name'>建站</div><div class='badge'>1</div></a></li>
     
@@ -292,7 +331,7 @@
 <div class="m_widget tagcloud">
     <div class="header"><i class="fa fa-tags" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
     <div class='content'>
-        <a href="/tags/hadoop/" style="font-size: 14px; color: #999">hadoop</a> <a href="/tags/hexo建站/" style="font-size: 14px; color: #999">hexo建站</a> <a href="/tags/python开发/" style="font-size: 14px; color: #999">python开发</a>
+        <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/hadoop/" style="font-size: 14px; color: #999">hadoop</a> <a href="/tags/hexo建站/" style="font-size: 14px; color: #999">hexo建站</a> <a href="/tags/python开发/" style="font-size: 14px; color: #999">python开发</a>
     </div>
 </div>
 
