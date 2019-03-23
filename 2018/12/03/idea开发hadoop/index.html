@@ -12,18 +12,18 @@
   <link rel="shortcut icon" href="/">
   <link rel="alternate" href="/atom.xml" title="wiki">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="下载idea和hadopp源码包新建一个java project，用于hadoop开发，同时需要导入hadoop的相关依赖包java project建成后，点击project structure，进入Dependencies，点击右边的+，点击JARs or">
+  <meta name="description" content="下载idea和hadopp源码包新建一个java project,用于hadoop开发,同时需要导入hadoop的相关依赖包java project建成后,点击project structure,进入Dependencies,点击右边的+,点击JARs or">
 <meta name="keywords" content="hadoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="idea开发hadoop">
 <meta property="og:url" content="https://mayi21.github.io/2018/12/03/idea开发hadoop/index.html">
 <meta property="og:site_name" content="wiki">
-<meta property="og:description" content="下载idea和hadopp源码包新建一个java project，用于hadoop开发，同时需要导入hadoop的相关依赖包java project建成后，点击project structure，进入Dependencies，点击右边的+，点击JARs or">
+<meta property="og:description" content="下载idea和hadopp源码包新建一个java project,用于hadoop开发,同时需要导入hadoop的相关依赖包java project建成后,点击project structure,进入Dependencies,点击右边的+,点击JARs or">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-19T06:46:54.304Z">
+<meta property="og:updated_time" content="2019-03-23T14:22:41.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="idea开发hadoop">
-<meta name="twitter:description" content="下载idea和hadopp源码包新建一个java project，用于hadoop开发，同时需要导入hadoop的相关依赖包java project建成后，点击project structure，进入Dependencies，点击右边的+，点击JARs or">
+<meta name="twitter:description" content="下载idea和hadopp源码包新建一个java project,用于hadoop开发,同时需要导入hadoop的相关依赖包java project建成后,点击project structure,进入Dependencies,点击右边的+,点击JARs or">
 
   <link rel="shortcut icon" href="" />
   <link rel="icon" href="" />
@@ -150,7 +150,7 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <p>下载idea和hadopp源码包<br>新建一个java project，用于hadoop开发，同时需要导入hadoop的相关依赖包<br>java project建成后，点击project structure，进入Dependencies，点击右边的+，点击JARs or<a id="more"></a><br>directories…,添加依赖，这些依赖都可以在share/hadoop下面找到<br><code>common</code><br><code>hdfs</code><br><code>mapreduce</code><br><code>yarn</code><br><code>common/lib</code><br>然后是Artifacts,点击+,添加JAR&gt;Empty,名称自定义，然后点击+，点击Module output,在弹出的对话框选择当前的项目，点击保存。<br>接着新建一个Application，Edit Configurations，点击+，新建一个Application，在Main Class中填入<br><code>org.apache.hadoop.util.RunJar</code><br>Working directory当然是选择当前项目的目录了， Program arguments  这个是设置默认参数的会在程序执行的时候传递进去<br><code>/home/edmond/workspace/IdeaProjects/Hadoop/HadoopWordCount/out/artifacts/wordcount/wordcount.jar</code><br><code>com.company.Main</code><br><code>input</code><br><code>output</code><br>第一个是jar包所在的位置<br>第二个是Main函数所在的类<br>第三四两个参数是由自己决定的（这两个参数会作为args[0]和args[1]传入）<br>点击ok保存。<br>自己写mapper和reducer测试吧！</p>
+            <p>下载idea和hadopp源码包<br>新建一个java project,用于hadoop开发,同时需要导入hadoop的相关依赖包<br>java project建成后,点击project structure,进入Dependencies,点击右边的+,点击JARs or<a id="more"></a><br>directories…,添加依赖,这些依赖都可以在share/hadoop下面找到<br><code>common</code><br><code>hdfs</code><br><code>mapreduce</code><br><code>yarn</code><br><code>common/lib</code><br>然后是Artifacts,点击+,添加JAR&gt;Empty,名称自定义,然后点击+,点击Module output,在弹出的对话框选择当前的项目,点击保存.<br>接着新建一个Application,Edit Configurations,点击+,新建一个Application,在Main Class中填入<br><code>org.apache.hadoop.util.RunJar</code><br>Working directory当然是选择当前项目的目录了, Program arguments  这个是设置默认参数的会在程序执行的时候传递进去<br><code>/home/edmond/workspace/IdeaProjects/Hadoop/HadoopWordCount/out/artifacts/wordcount/wordcount.jar</code><br><code>com.company.Main</code><br><code>input</code><br><code>output</code><br>第一个是jar包所在的位置<br>第二个是Main函数所在的类<br>第三四两个参数是由自己决定的（这两个参数会作为args[0]和args[1]传入）<br>点击ok保存.<br>自己写mapper和reducer测试吧！</p>
 
         </div>
 

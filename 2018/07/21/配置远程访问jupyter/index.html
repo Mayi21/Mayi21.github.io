@@ -12,18 +12,18 @@
   <link rel="shortcut icon" href="/">
   <link rel="alternate" href="/atom.xml" title="wiki">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##前言：jupyternotebook是一款在线的python编程环境。交互式的编程环境，支持四十多种语言。对于爬虫和分析数据，这样的操作十分方便。众所周知：Jupyter是一个WEB应用。本篇文章教大家在服务器端部署Jupyter并远程访问。1.服务器环境：大家可以自行在网上购买服务器，本篇文章使用的服务器环境是Ubuntu 16.04.1 LTS x86_64。2.安全规则：添加安全规则，开">
+  <meta name="description" content="##前言:jupyternotebook是一款在线的python编程环境.交互式的编程环境,支持四十多种语言.对于爬虫和分析数据,这样的操作十分方便.众所周知:Jupyter是一个WEB应用.本篇文章教大家在服务器端部署Jupyter并远程访问.1.服务器环境:大家可以自行在网上购买服务器,本篇文章使用的服务器环境是Ubuntu 16.04.1 LTS x86_64.2.安全规则:添加安全规则,开">
 <meta name="keywords" content="python开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="配置远程访问jupyter">
 <meta property="og:url" content="https://mayi21.github.io/2018/07/21/配置远程访问jupyter/index.html">
 <meta property="og:site_name" content="wiki">
-<meta property="og:description" content="##前言：jupyternotebook是一款在线的python编程环境。交互式的编程环境，支持四十多种语言。对于爬虫和分析数据，这样的操作十分方便。众所周知：Jupyter是一个WEB应用。本篇文章教大家在服务器端部署Jupyter并远程访问。1.服务器环境：大家可以自行在网上购买服务器，本篇文章使用的服务器环境是Ubuntu 16.04.1 LTS x86_64。2.安全规则：添加安全规则，开">
+<meta property="og:description" content="##前言:jupyternotebook是一款在线的python编程环境.交互式的编程环境,支持四十多种语言.对于爬虫和分析数据,这样的操作十分方便.众所周知:Jupyter是一个WEB应用.本篇文章教大家在服务器端部署Jupyter并远程访问.1.服务器环境:大家可以自行在网上购买服务器,本篇文章使用的服务器环境是Ubuntu 16.04.1 LTS x86_64.2.安全规则:添加安全规则,开">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-19T06:51:56.169Z">
+<meta property="og:updated_time" content="2019-03-23T14:14:08.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置远程访问jupyter">
-<meta name="twitter:description" content="##前言：jupyternotebook是一款在线的python编程环境。交互式的编程环境，支持四十多种语言。对于爬虫和分析数据，这样的操作十分方便。众所周知：Jupyter是一个WEB应用。本篇文章教大家在服务器端部署Jupyter并远程访问。1.服务器环境：大家可以自行在网上购买服务器，本篇文章使用的服务器环境是Ubuntu 16.04.1 LTS x86_64。2.安全规则：添加安全规则，开">
+<meta name="twitter:description" content="##前言:jupyternotebook是一款在线的python编程环境.交互式的编程环境,支持四十多种语言.对于爬虫和分析数据,这样的操作十分方便.众所周知:Jupyter是一个WEB应用.本篇文章教大家在服务器端部署Jupyter并远程访问.1.服务器环境:大家可以自行在网上购买服务器,本篇文章使用的服务器环境是Ubuntu 16.04.1 LTS x86_64.2.安全规则:添加安全规则,开">
 
   <link rel="shortcut icon" href="" />
   <link rel="icon" href="" />
@@ -150,7 +150,7 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <p>##前言：jupyternotebook是一款在线的python编程环境。交互式的编程环境，支持四十多种语言。对于爬虫和分析数据，这样的操作十分方便。众所周知：Jupyter是一个WEB应用。本篇文章教大家在服务器端部署Jupyter并远程访问。<br>1.服务器环境：大家可以自行在网上购买服务器，本篇文章使用的服务器环境是Ubuntu 16.04.1 LTS x86_64。<br>2.安全规则：添加安全规则，开放8888端口，记得同时开放22端口，以便在putty，xshell等软件上登陆;然后关联服务器实例。<a id="more"></a><br>3.使用wget下载anaconda，在<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">清华大学开源软件镜像站</a>寻找相应的版本，复制下载链接，然后wget便可。<br>4.使用sh Anaconda3-5.1.0-Linux-x86_64.sh安装Anaconda，安装一路yes便可，安装完成后重启终端，尝试<code>conda</code>.<br>5.输入<code>jupyter notebook --generate-config</code>,生成默认的jupyter配置文件<br>6.安装ipython,<code>sudo apt-get install ipython3</code>.<br>7.启动ipython<code>ipthon</code>，输入<code>from notebook.auth import passwd</code>回车，输入<code>passwd()</code>，此时要求输入密码，这个密码为登陆服务器端jupyter的密码.两次输入后得到密钥(以sha开头的).<br>8.<code>vim /home/ubuntu/.jupyter/jupyter_notebook_config.py</code><br>9.在<code># Configuration file for jupyter-notebook.</code>后另起一行添加<br><code>c.NotebookApp.ip=&#39;*&#39;</code><br><code>c.NotebookApp.password = u&#39;密钥&#39;</code><br><code>c.NotebookApp.open_browser = False</code><br><code>c.NotebookApp.port =8888</code><br>保存退出.<br>10.安装自动补码,在jupyter notebook未运行的情况下操作<br><code>python -m pip install jupyter_contrib_nbextensions</code><br><code>jupyter contrib nbextension install --user --skip-running-check</code><br>然后在 Clusters旁边多出 Nbextensions点击进去，找到 Hinterland，打勾即可<br>10.运行Jupyter Notebook <code>jupyter notebook</code>，后台运行<code>nohup jupyter notebook --allow-root &gt; jnotebook.out 2&gt;&amp;1 &amp;</code><br>11.在本地电脑浏览器上输入[<a href="http://you" target="_blank" rel="noopener">http://you</a> server ip:8888]<br>12.输入上面设置的密码。</p>
+            <p>##前言:jupyternotebook是一款在线的python编程环境.交互式的编程环境,支持四十多种语言.对于爬虫和分析数据,这样的操作十分方便.众所周知:Jupyter是一个WEB应用.本篇文章教大家在服务器端部署Jupyter并远程访问.<br>1.服务器环境:大家可以自行在网上购买服务器,本篇文章使用的服务器环境是Ubuntu 16.04.1 LTS x86_64.<br>2.安全规则:添加安全规则,开放8888端口,记得同时开放22端口,以便在putty,xshell等软件上登陆;然后关联服务器实例.<a id="more"></a><br>3.使用wget下载anaconda,在<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">清华大学开源软件镜像站</a>寻找相应的版本,复制下载链接,然后wget便可.<br>4.使用sh Anaconda3-5.1.0-Linux-x86_64.sh安装Anaconda,安装一路yes便可,安装完成后重启终端,尝试<code>conda</code>.<br>5.输入<code>jupyter notebook --generate-config</code>,生成默认的jupyter配置文件<br>6.安装ipython,<code>sudo apt-get install ipython3</code>.<br>7.启动ipython<code>ipthon</code>,输入<code>from notebook.auth import passwd</code>回车,输入<code>passwd()</code>,此时要求输入密码,这个密码为登陆服务器端jupyter的密码.两次输入后得到密钥(以sha开头的).<br>8.<code>vim /home/ubuntu/.jupyter/jupyter_notebook_config.py</code><br>9.在<code># Configuration file for jupyter-notebook.</code>后另起一行添加<br><code>c.NotebookApp.ip=&#39;*&#39;</code><br><code>c.NotebookApp.password = u&#39;密钥&#39;</code><br><code>c.NotebookApp.open_browser = False</code><br><code>c.NotebookApp.port =8888</code><br>保存退出.<br>10.安装自动补码,在jupyter notebook未运行的情况下操作<br><code>python -m pip install jupyter_contrib_nbextensions</code><br><code>jupyter contrib nbextension install --user --skip-running-check</code><br>然后在 Clusters旁边多出 Nbextensions点击进去,找到 Hinterland,打勾即可<br>10.运行Jupyter Notebook <code>jupyter notebook</code>,后台运行<code>nohup jupyter notebook --allow-root &gt; jnotebook.out 2&gt;&amp;1 &amp;</code><br>11.在本地电脑浏览器上输入[<a href="http://you" target="_blank" rel="noopener">http://you</a> server ip:8888]<br>12.输入上面设置的密码.</p>
 
         </div>
 

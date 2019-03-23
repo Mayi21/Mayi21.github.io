@@ -12,18 +12,18 @@
   <link rel="shortcut icon" href="/">
   <link rel="alternate" href="/atom.xml" title="wiki">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.先安装docker，这里不再赘述2.使用ubuntu镜像来创建容器:docker pull ubuntu，然后启动容器:docker run -it ubuntu /bin/bash">
+  <meta name="description" content="1.先安装docker,这里不再赘述2.使用ubuntu镜像来创建容器:docker pull ubuntu,然后启动容器:docker run -it ubuntu /bin/bash">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="创建支持ssh的镜像服务">
 <meta property="og:url" content="https://mayi21.github.io/2019/03/11/创建支持ssh服务的镜像/index.html">
 <meta property="og:site_name" content="wiki">
-<meta property="og:description" content="1.先安装docker，这里不再赘述2.使用ubuntu镜像来创建容器:docker pull ubuntu，然后启动容器:docker run -it ubuntu /bin/bash">
+<meta property="og:description" content="1.先安装docker,这里不再赘述2.使用ubuntu镜像来创建容器:docker pull ubuntu,然后启动容器:docker run -it ubuntu /bin/bash">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-11T11:18:14.028Z">
+<meta property="og:updated_time" content="2019-03-23T14:24:03.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建支持ssh的镜像服务">
-<meta name="twitter:description" content="1.先安装docker，这里不再赘述2.使用ubuntu镜像来创建容器:docker pull ubuntu，然后启动容器:docker run -it ubuntu /bin/bash">
+<meta name="twitter:description" content="1.先安装docker,这里不再赘述2.使用ubuntu镜像来创建容器:docker pull ubuntu,然后启动容器:docker run -it ubuntu /bin/bash">
 
   <link rel="shortcut icon" href="" />
   <link rel="icon" href="" />
@@ -150,7 +150,7 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <p>1.先安装docker，这里不再赘述<br>2.使用ubuntu镜像来创建容器:<code>docker pull ubuntu</code>，然后启动容器:<code>docker run -it ubuntu /bin/bash</code><a id="more"></a><br>3.更新一下软件源:<code>apt-get update</code>  <code>apt-get upgrade</code>,然后进行安装<code>apt-get install openssh-server</code><br>4.要是想正常启动服务，需要目录/var/run/sshd存在，手动创建，并启动服务:<code>mkdir -p /var/run/sshd</code>  <code>/usr/sbin/sshd -D &amp;</code><br>5.查看容器的22端口：<code>netstat -tunlp</code>,如果提示命令没有安装，则选择安装:<code>apt-get install net-tools</code>,然后在执行命令就行了。此时端口应该是处于监听状态。<br>6.在root用户目录下创建.ssh目录，并复制需要登录的公钥信息（一般在本地主机用户目录下的.ssh/id_rsa.pub）,先创建文件夹:<code>mkdir root/.ssh</code>,然后复制公钥信息到authorized_keys中，<code>vim /root/.ssh/authorized_keys</code><br>7.创建自启动ssh服务的可执行文件run.sh，并添加可执行权限:<code>vim /run.sh</code>  <code>chmod +x run.sh</code>,run.sh脚本的内容为:<br><code>#!/bin/bash</code><br><code>/usr/sbin/sshd -D</code><br>8.使用<code>Ctrl + p + q</code>退出但并不关闭容器。<br>9.用docker commit命令保存为一个新的sshd:ubuntu镜像:<br><code>docker commit &lt;Image Id&gt; sshd:ubuntu</code>,使用<code>docker images</code>查看本地的镜像<br>10.启动容器，并添加映射端口10022 -&gt; 22，其中10022是宿主机的端口，22是容器的SSH服务监听端口：<code>docker run -p 10022:22 -d sshd:ubuntu /run.sh</code>,启动成功后，在宿主机上看到容器的运行的详细信息。<br>11.在宿主机（192.168.1.200）上或其他主机，通过ssh服务访问10022端口来登录容器：<code>ssh 192.168.1.200 -p 10022</code><br>参考：Docker技术入门与实践</p>
+            <p>1.先安装docker,这里不再赘述<br>2.使用ubuntu镜像来创建容器:<code>docker pull ubuntu</code>,然后启动容器:<code>docker run -it ubuntu /bin/bash</code><a id="more"></a><br>3.更新一下软件源:<code>apt-get update</code>  <code>apt-get upgrade</code>,然后进行安装<code>apt-get install openssh-server</code><br>4.要是想正常启动服务,需要目录/var/run/sshd存在,手动创建,并启动服务:<code>mkdir -p /var/run/sshd</code>  <code>/usr/sbin/sshd -D &amp;</code><br>5.查看容器的22端口:<code>netstat -tunlp</code>,如果提示命令没有安装,则选择安装:<code>apt-get install net-tools</code>,然后在执行命令就行了.此时端口应该是处于监听状态.<br>6.在root用户目录下创建.ssh目录,并复制需要登录的公钥信息（一般在本地主机用户目录下的.ssh/id_rsa.pub）,先创建文件夹:<code>mkdir root/.ssh</code>,然后复制公钥信息到authorized_keys中,<code>vim /root/.ssh/authorized_keys</code><br>7.创建自启动ssh服务的可执行文件run.sh,并添加可执行权限:<code>vim /run.sh</code>  <code>chmod +x run.sh</code>,run.sh脚本的内容为:<br><code>#!/bin/bash</code><br><code>/usr/sbin/sshd -D</code><br>8.使用<code>Ctrl + p + q</code>退出但并不关闭容器.<br>9.用docker commit命令保存为一个新的sshd:ubuntu镜像:<br><code>docker commit &lt;Image Id&gt; sshd:ubuntu</code>,使用<code>docker images</code>查看本地的镜像<br>10.启动容器,并添加映射端口10022 -&gt; 22,其中10022是宿主机的端口,22是容器的SSH服务监听端口:<code>docker run -p 10022:22 -d sshd:ubuntu /run.sh</code>,启动成功后,在宿主机上看到容器的运行的详细信息.<br>11.在宿主机（192.168.1.200）上或其他主机,通过ssh服务访问10022端口来登录容器:<code>ssh 192.168.1.200 -p 10022</code><br>参考:Docker技术入门与实践</p>
 
         </div>
 
