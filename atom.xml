@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mayi21.github.io/"/>
-  <updated>2019-02-19T06:47:06.489Z</updated>
+  <updated>2019-03-23T13:05:17.155Z</updated>
   <id>https://mayi21.github.io/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Centos配置hadoop和spark</title>
+    <link href="https://mayi21.github.io/2019/03/23/Linux%E9%85%8D%E7%BD%AEhadoop%E4%B8%8Espark/"/>
+    <id>https://mayi21.github.io/2019/03/23/Linux配置hadoop与spark/</id>
+    <published>2019-03-23T13:05:17.152Z</published>
+    <updated>2019-03-23T13:05:17.155Z</updated>
+    
+    <content type="html"><![CDATA[<p>前言：大数据学生一枚，hadoop是基础，spark是进阶，到了学spark的时候了，又得重新配置一台服务器了。正好借这次机会，把配置步骤记下来，省得以后再翻老班发的PPT<br>环境：Centos7 64位，JDK1.8 hadoop2.8.4，scala2.11.6，spark2.4.0<a id="more"></a><br>1.先安装通用工具：yum install lrzsz.安装完成后在Xshell中使用rz命令可选择上传文件,十分方便。<br>2.配置网关：<code>vim /etc/sysconfig/network</code>,应该是空的，添加内容如下<code>HOSTNAME=zzti</code> <code>GATEWAY=192.168.17.2</code>,网关设置也可能不是，自己可能要改一下。<br>3.修改主机名称：<code>vim /etc/hosts</code>,在最前面添加<code>127.0.0.1 zzti</code>.<br>4.此时重启一下，倒杯水，准备下面一番苦干吧。<code>reboot</code><br>5.创建工作目录：<code>mkdir -p /data/zzti</code> <code>ln -s /data/zzti/ /zzti</code> <code>useradd zzti</code> <code>chown zzti:zzti /zzti</code>.<br>6.配置免密登录：<code>ssh-keygen</code>,一路回车到底，然后执行<code>cat ~/.ssh/id_rsa.pub &gt; ~/.ssh/authorized_keys</code>  <code>chmod 644 ~/.ssh/authorized_keys</code>  <code>mkdir /home/zzti/.ssh</code> <code>cp ~/.ssh/*  /home/zzti/.ssh/</code> <code>chown -R zzti:zzti /home/zzti/.ssh</code> <code>chmod 700 /home/zzti/.ssh</code>,此过程应该没什么错误。  </p><p>###下面操作在zzti用户下完成 <code>su zzti</code><br>7.上传JDK（此处省略无数字，自己找jdk，上传命令rz），然后解压<code>tar -zxvf jdk-8u181-linux-x64.tar.gz</code>,更换自己的jdk版本，建立软连接，方便操作<code>ln -s jdk1.8.0_181/ jdk</code>.<br>8.上传hadoop，然后解压<code>tar -zxvf hadoop-2.8.4.tar.gz</code>,建立软连接 <code>ln -s hadoop-2.8.4 hadoop</code>.配置环境变量：<code>vim ~/.bashrc</code>,在最后面加上如下的内容:<br><code>export JAVA_HOME=/zzti/jdk/</code><br><code>export HADOOP_HOME=/zzti/hadoop/</code><br><code>export PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin</code><br>然后退出保存，执行<code>source ~/.bashrc</code>,使其生效，然后运行<code>java -version</code>,看到jdk的版本即为成功。<br>9.配置hadoop：<code>cd /zzti/hadoop/etc/hadoop</code>,在core-site.xml的两个configure标签添加如下内容：<br><code>&lt;property&gt;</code><br><code>&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</code><br><code>&lt;value&gt;/zzti/data/hadoop_tmp&lt;/value&gt;</code><br><code>&lt;/property&gt;</code><br><code>&lt;property&gt;</code><br><code>&lt;name&gt;fs.defaultFS&lt;/name&gt;</code><br><code>&lt;value&gt;hdfs://zzti:9000&lt;/value&gt;</code><br><code>&lt;/property&gt;</code><br><code>&lt;property&gt;</code><br><code>&lt;name&gt;io.file.buffer.size&lt;/name&gt;</code><br><code>&lt;value&gt;4096&lt;/value&gt;</code><br><code>&lt;/property&gt;</code><br><code>&lt;property&gt;</code><br><code>&lt;name&gt;ha.zookeeper.quorum&lt;/name&gt;</code><br><code>&lt;value&gt;zzti:2181&lt;/value&gt;</code><br><code>&lt;/property&gt;</code><br>保存退出后，继续编辑hdfs-site.xml,<code>vim hdfs-site.xml</code>,在configure标签之间添加如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.nameservices&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;zzti-cluster&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;zzti:50090&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;file:///zzti/data/hadoop/name&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;file:///zzti/data/hadoop/data&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.webhdfs.enabled&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前言：大数据学生一枚，hadoop是基础，spark是进阶，到了学spark的时候了，又得重新配置一台服务器了。正好借这次机会，把配置步骤记下来，省得以后再翻老班发的PPT&lt;br&gt;环境：Centos7 64位，JDK1.8 hadoop2.8.4，scala2.11.6，spark2.4.0
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://mayi21.github.io/categories/Linux/"/>
+    
+    
+      <category term="hadoop" scheme="https://mayi21.github.io/tags/hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>创建支持ssh的镜像服务</title>
+    <link href="https://mayi21.github.io/2019/03/11/%E5%88%9B%E5%BB%BA%E6%94%AF%E6%8C%81ssh%E6%9C%8D%E5%8A%A1%E7%9A%84%E9%95%9C%E5%83%8F/"/>
+    <id>https://mayi21.github.io/2019/03/11/创建支持ssh服务的镜像/</id>
+    <published>2019-03-11T11:18:14.028Z</published>
+    <updated>2019-03-11T11:18:14.028Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.先安装docker，这里不再赘述<br>2.使用ubuntu镜像来创建容器:<code>docker pull ubuntu</code>，然后启动容器:<code>docker run -it ubuntu /bin/bash</code><a id="more"></a><br>3.更新一下软件源:<code>apt-get update</code>  <code>apt-get upgrade</code>,然后进行安装<code>apt-get install openssh-server</code><br>4.要是想正常启动服务，需要目录/var/run/sshd存在，手动创建，并启动服务:<code>mkdir -p /var/run/sshd</code>  <code>/usr/sbin/sshd -D &amp;</code><br>5.查看容器的22端口：<code>netstat -tunlp</code>,如果提示命令没有安装，则选择安装:<code>apt-get install net-tools</code>,然后在执行命令就行了。此时端口应该是处于监听状态。<br>6.在root用户目录下创建.ssh目录，并复制需要登录的公钥信息（一般在本地主机用户目录下的.ssh/id_rsa.pub）,先创建文件夹:<code>mkdir root/.ssh</code>,然后复制公钥信息到authorized_keys中，<code>vim /root/.ssh/authorized_keys</code><br>7.创建自启动ssh服务的可执行文件run.sh，并添加可执行权限:<code>vim /run.sh</code>  <code>chmod +x run.sh</code>,run.sh脚本的内容为:<br><code>#!/bin/bash</code><br><code>/usr/sbin/sshd -D</code><br>8.使用<code>Ctrl + p + q</code>退出但并不关闭容器。<br>9.用docker commit命令保存为一个新的sshd:ubuntu镜像:<br><code>docker commit &lt;Image Id&gt; sshd:ubuntu</code>,使用<code>docker images</code>查看本地的镜像<br>10.启动容器，并添加映射端口10022 -&gt; 22，其中10022是宿主机的端口，22是容器的SSH服务监听端口：<code>docker run -p 10022:22 -d sshd:ubuntu /run.sh</code>,启动成功后，在宿主机上看到容器的运行的详细信息。<br>11.在宿主机（192.168.1.200）上或其他主机，通过ssh服务访问10022端口来登录容器：<code>ssh 192.168.1.200 -p 10022</code><br>参考：Docker技术入门与实践</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.先安装docker，这里不再赘述&lt;br&gt;2.使用ubuntu镜像来创建容器:&lt;code&gt;docker pull ubuntu&lt;/code&gt;，然后启动容器:&lt;code&gt;docker run -it ubuntu /bin/bash&lt;/code&gt;
+    
+    </summary>
+    
+      <category term="docker" scheme="https://mayi21.github.io/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="https://mayi21.github.io/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>利用Tensorflow构建自定义的图片分类器</title>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Archives: 2019/2 | wiki</title>
+  <title>创建支持ssh的镜像服务 | wiki</title>
   <meta name="description" content="坚持不懈的坚持" />
   <meta name="keywords" content="" />
   <meta name="HandheldFriendly" content="True" />
@@ -12,16 +12,18 @@
   <link rel="shortcut icon" href="/">
   <link rel="alternate" href="/atom.xml" title="wiki">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="坚持不懈的坚持">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wiki">
-<meta property="og:url" content="https://mayi21.github.io/archives/2019/02/index.html">
+  <meta name="description" content="1.先安装docker，这里不再赘述2.使用ubuntu镜像来创建容器:docker pull ubuntu，然后启动容器:docker run -it ubuntu /bin/bash">
+<meta name="keywords" content="docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="创建支持ssh的镜像服务">
+<meta property="og:url" content="https://mayi21.github.io/2019/03/11/创建支持ssh服务的镜像/index.html">
 <meta property="og:site_name" content="wiki">
-<meta property="og:description" content="坚持不懈的坚持">
+<meta property="og:description" content="1.先安装docker，这里不再赘述2.使用ubuntu镜像来创建容器:docker pull ubuntu，然后启动容器:docker run -it ubuntu /bin/bash">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-11T11:18:14.028Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wiki">
-<meta name="twitter:description" content="坚持不懈的坚持">
+<meta name="twitter:title" content="创建支持ssh的镜像服务">
+<meta name="twitter:description" content="1.先安装docker，这里不再赘述2.使用ubuntu镜像来创建容器:docker pull ubuntu，然后启动容器:docker run -it ubuntu /bin/bash">
 
   <link rel="shortcut icon" href="" />
   <link rel="icon" href="" />
@@ -124,62 +126,78 @@
   <div class="l_body">
     <div class='container clearfix'>
       <div class='l_main'>
-        
-	
-    <script>
-        window.subData= { title:'year : 2019.2'}
-    </script>
-
-
-<section class="post-list">
-    
-    
-        <div class='post-wrapper'>
-    <article class="post reveal">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2019/02/17/Tensorflow构建自定义的图片分类器/">
-                
-                    利用Tensorflow构建自定义的图片分类器
-                
-            </a>
-        </h2>
+        <article id="post-创建支持ssh服务的镜像" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        <h1 class="title">
+            
+                创建支持ssh的镜像服务
+            
+        </h1>
         <time>
-            2019-02-17 星期日
+            2019-03-11 星期一&nbsp;&nbsp;
+            <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
         </time>
         
     
     <div class='cats'>
-        <a href="/categories/python/">python</a>
+        <a href="/categories/docker/">docker</a>
     </div>
 
 
     </section>
+    
 
     <section class="article typo">
-        <h3 id="操作环境：Ubuntu-18-04-Tensorflow-1-7"><a href="#操作环境：Ubuntu-18-04-Tensorflow-1-7" class="headerlink" title="操作环境：Ubuntu 18.04 Tensorflow 1.7"></a>操作环境：Ubuntu 18.04 Tensorflow 1.7</h3><p>1.安装配置Tensorflow或者利用Docker.Tensorflow的安装这里不予多介绍，主要介绍一下Docker的用法。<br>Docker的操作命令如下:
-        
-            <div class="readmore">
-                <a href="/2019/02/17/Tensorflow构建自定义的图片分类器/" class="flat-box">READ MORE</a>
-            </div>
-        
 
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/Tensorflow/"><i class="fa fa-tag"></i>&nbsp;&nbsp;Tensorflow</a>
-                
-            </div>
-        
-    </section>
-</article>
+        <div class="article-entry" itemprop="articleBody">
+            <p>1.先安装docker，这里不再赘述<br>2.使用ubuntu镜像来创建容器:<code>docker pull ubuntu</code>，然后启动容器:<code>docker run -it ubuntu /bin/bash</code><a id="more"></a><br>3.更新一下软件源:<code>apt-get update</code>  <code>apt-get upgrade</code>,然后进行安装<code>apt-get install openssh-server</code><br>4.要是想正常启动服务，需要目录/var/run/sshd存在，手动创建，并启动服务:<code>mkdir -p /var/run/sshd</code>  <code>/usr/sbin/sshd -D &amp;</code><br>5.查看容器的22端口：<code>netstat -tunlp</code>,如果提示命令没有安装，则选择安装:<code>apt-get install net-tools</code>,然后在执行命令就行了。此时端口应该是处于监听状态。<br>6.在root用户目录下创建.ssh目录，并复制需要登录的公钥信息（一般在本地主机用户目录下的.ssh/id_rsa.pub）,先创建文件夹:<code>mkdir root/.ssh</code>,然后复制公钥信息到authorized_keys中，<code>vim /root/.ssh/authorized_keys</code><br>7.创建自启动ssh服务的可执行文件run.sh，并添加可执行权限:<code>vim /run.sh</code>  <code>chmod +x run.sh</code>,run.sh脚本的内容为:<br><code>#!/bin/bash</code><br><code>/usr/sbin/sshd -D</code><br>8.使用<code>Ctrl + p + q</code>退出但并不关闭容器。<br>9.用docker commit命令保存为一个新的sshd:ubuntu镜像:<br><code>docker commit &lt;Image Id&gt; sshd:ubuntu</code>,使用<code>docker images</code>查看本地的镜像<br>10.启动容器，并添加映射端口10022 -&gt; 22，其中10022是宿主机的端口，22是容器的SSH服务监听端口：<code>docker run -p 10022:22 -d sshd:ubuntu /run.sh</code>,启动成功后，在宿主机上看到容器的运行的详细信息。<br>11.在宿主机（192.168.1.200）上或其他主机，通过ssh服务访问10022端口来登录容器：<code>ssh 192.168.1.200 -p 10022</code><br>参考：Docker技术入门与实践</p>
 
         </div>
-    
-</section>
+
+        
+            <div class="article-tags tags">
+                
+                    <a href="/tags/docker/"><i class="fa fa-tag"></i>&nbsp;&nbsp;docker</a>
+                
+            </div>
+        
+
+        
+            <div class="art-item-footer">
+                
+                    <span class="art-item-left">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;
+                        <a href="/2019/03/23/Linux配置hadoop与spark/" rel="prev" title="Centos配置hadoop和spark">
+                            Centos配置hadoop和spark
+                        </a>
+                    </span>
+                
+                
+                    <span class="art-item-right">
+                        <a href="/2019/02/17/Tensorflow构建自定义的图片分类器/" rel="next" title="利用Tensorflow构建自定义的图片分类器">
+                            利用Tensorflow构建自定义的图片分类器
+                        </a>&nbsp;
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </span>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
 
 
-
+<script>
+    window.subData = {
+        title: '创建支持ssh的镜像服务',
+        tools: true
+    }
+</script>
 
 
       </div>
@@ -279,6 +297,10 @@ if(!ROOT.endsWith('/'))ROOT += '/';
 <script src="/js/search.js"></script>
 <script src="/js/app.js"></script>
 
+
+    
+    
+    
 
 
   <script>setLoadingBarProgress(100);</script>
