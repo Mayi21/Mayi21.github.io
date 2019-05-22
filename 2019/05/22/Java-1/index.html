@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Tag: hadoop | wiki</title>
+  <title>java-1 | wiki</title>
   <meta name="description" content="坚持不懈的坚持" />
   <meta name="keywords" content="" />
   <meta name="HandheldFriendly" content="True" />
@@ -12,16 +12,18 @@
   <link rel="shortcut icon" href="/">
   <link rel="alternate" href="/atom.xml" title="wiki">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="坚持不懈的坚持">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wiki">
-<meta property="og:url" content="https://mayi21.github.io/tags/hadoop/index.html">
+  <meta name="description" content="Q.String,StringBuffer和StringBuilder的区别A.String是字符串常量，而StringBuilder和StringBuffer是字符串变量；由String创建的字符内容不可改变，而由StringBuffer和StringBuilder创建的字符内容可以改变；StringBuffer是线程安全的，StringBuilder是线程不安全的，但在可能的情况下先建议使用此">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java-1">
+<meta property="og:url" content="https://mayi21.github.io/2019/05/22/Java-1/index.html">
 <meta property="og:site_name" content="wiki">
-<meta property="og:description" content="坚持不懈的坚持">
+<meta property="og:description" content="Q.String,StringBuffer和StringBuilder的区别A.String是字符串常量，而StringBuilder和StringBuffer是字符串变量；由String创建的字符内容不可改变，而由StringBuffer和StringBuilder创建的字符内容可以改变；StringBuffer是线程安全的，StringBuilder是线程不安全的，但在可能的情况下先建议使用此">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-22T10:47:49.299Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wiki">
-<meta name="twitter:description" content="坚持不懈的坚持">
+<meta name="twitter:title" content="java-1">
+<meta name="twitter:description" content="Q.String,StringBuffer和StringBuilder的区别A.String是字符串常量，而StringBuilder和StringBuffer是字符串变量；由String创建的字符内容不可改变，而由StringBuffer和StringBuilder创建的字符内容可以改变；StringBuffer是线程安全的，StringBuilder是线程不安全的，但在可能的情况下先建议使用此">
 
   <link rel="shortcut icon" href="" />
   <link rel="icon" href="" />
@@ -124,101 +126,71 @@
   <div class="l_body">
     <div class='container clearfix'>
       <div class='l_main'>
-        
-    <script>
-        window.subData= { title:'tag : hadoop'}
-    </script>
-
-
-<section class="post-list">
-    
-    
-        <div class='post-wrapper'>
-    <article class="post reveal">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2019/03/23/Linux配置hadoop与spark/">
-                
-                    Centos配置hadoop和spark
-                
-            </a>
-        </h2>
+        <article id="post-Java-1" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        <h1 class="title">
+            
+                java-1
+            
+        </h1>
         <time>
-            2019-03-23 星期六
+            2019-05-22 星期三&nbsp;&nbsp;
+            <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
         </time>
         
     
     <div class='cats'>
-        <a href="/categories/Linux/">Linux</a>
+        <a href="/categories/java/">java</a>
     </div>
 
 
     </section>
+    
 
     <section class="article typo">
-        <p>前言:大数据学生一枚,hadoop是基础,spark是进阶,到了学spark的时候了,又得重新配置一台服务器了.正好借这次机会,把配置步骤记下来,省得以后再翻老班发的PPT.<br>环境:Centos7 64位,JDK1.8 hadoop2.8.4,scala2.11.6,spark2.4.0
-        
-            <div class="readmore">
-                <a href="/2019/03/23/Linux配置hadoop与spark/" class="flat-box">READ MORE</a>
-            </div>
-        
 
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/hadoop/"><i class="fa fa-tag"></i>&nbsp;&nbsp;hadoop</a>
-                
-            </div>
-        
-    </section>
-</article>
+        <div class="article-entry" itemprop="articleBody">
+            <p>Q.String,StringBuffer和StringBuilder的区别<br>A.String是字符串常量，而StringBuilder和StringBuffer是字符串变量；由String创建的字符内容不可改变，而由StringBuffer和StringBuilder创建的字符内容可以改变；StringBuffer是线程安全的，StringBuilder是线程不安全的，但在可能的情况下先建议使用此，因为不需要考虑同步问题，<a id="more"></a>所以会更快，String是线程安全的，但是线程安全主要是针对那些需要维护内部状态改变的类，而String是不可以改变的，所有操作都不会对它进行修改，所以一般不讨论String的线程安全问题。<br>Q.HashSet怎样保证所存元素单一<br>A.</p>
 
         </div>
-    
-        <div class='post-wrapper'>
-    <article class="post reveal">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/03/idea开发hadoop/">
+
+        
+            <div class="article-tags tags">
                 
-                    idea开发hadoop
-                
-            </a>
-        </h2>
-        <time>
-            2018-12-03 星期一
-        </time>
-        
-    
-    <div class='cats'>
-        <a href="/categories/Java/">Java</a>
-    </div>
-
-
-    </section>
-
-    <section class="article typo">
-        <p>下载idea和hadopp源码包<br>新建一个java project,用于hadoop开发,同时需要导入hadoop的相关依赖包<br>java project建成后,点击project structure,进入Dependencies,点击右边的+,点击JARs or
-        
-            <div class="readmore">
-                <a href="/2018/12/03/idea开发hadoop/" class="flat-box">READ MORE</a>
-            </div>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/hadoop/"><i class="fa fa-tag"></i>&nbsp;&nbsp;hadoop</a>
+                    <a href="/tags/java/"><i class="fa fa-tag"></i>&nbsp;&nbsp;java</a>
                 
             </div>
         
+
+        
+            <div class="art-item-footer">
+                
+                
+                    <span class="art-item-right">
+                        <a href="/2019/03/23/Linux配置hadoop与spark/" rel="next" title="Centos配置hadoop和spark">
+                            Centos配置hadoop和spark
+                        </a>&nbsp;
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </span>
+                
+            </div>
+        
+
     </section>
+
 </article>
 
-        </div>
-    
-</section>
+<br>
 
+<!-- 显示推荐文章和评论 -->
+
+
+<script>
+    window.subData = {
+        title: 'java-1',
+        tools: true
+    }
+</script>
 
 
       </div>
@@ -320,6 +292,10 @@ if(!ROOT.endsWith('/'))ROOT += '/';
 <script src="/js/search.js"></script>
 <script src="/js/app.js"></script>
 
+
+    
+    
+    
 
 
   <script>setLoadingBarProgress(100);</script>
