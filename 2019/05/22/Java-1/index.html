@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>java-1 | wiki</title>
+  <title>java笔记-1 | wiki</title>
   <meta name="description" content="坚持不懈的坚持" />
   <meta name="keywords" content="" />
   <meta name="HandheldFriendly" content="True" />
@@ -13,16 +13,16 @@
   <link rel="alternate" href="/atom.xml" title="wiki">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Q.String,StringBuffer和StringBuilder的区别A.String是字符串常量，而StringBuilder和StringBuffer是字符串变量；由String创建的字符内容不可改变，而由StringBuffer和StringBuilder创建的字符内容可以改变；StringBuffer是线程安全的，StringBuilder是线程不安全的，但在可能的情况下先建议使用此">
-<meta name="keywords" content="java">
+<meta name="keywords" content="Java开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java-1">
+<meta property="og:title" content="java笔记-1">
 <meta property="og:url" content="https://mayi21.github.io/2019/05/22/Java-1/index.html">
 <meta property="og:site_name" content="wiki">
 <meta property="og:description" content="Q.String,StringBuffer和StringBuilder的区别A.String是字符串常量，而StringBuilder和StringBuffer是字符串变量；由String创建的字符内容不可改变，而由StringBuffer和StringBuilder创建的字符内容可以改变；StringBuffer是线程安全的，StringBuilder是线程不安全的，但在可能的情况下先建议使用此">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-22T10:47:49.299Z">
+<meta property="og:updated_time" content="2019-05-22T11:24:07.094Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java-1">
+<meta name="twitter:title" content="java笔记-1">
 <meta name="twitter:description" content="Q.String,StringBuffer和StringBuilder的区别A.String是字符串常量，而StringBuilder和StringBuffer是字符串变量；由String创建的字符内容不可改变，而由StringBuffer和StringBuilder创建的字符内容可以改变；StringBuffer是线程安全的，StringBuilder是线程不安全的，但在可能的情况下先建议使用此">
 
   <link rel="shortcut icon" href="" />
@@ -130,7 +130,7 @@
     <section class='meta'>
         <h1 class="title">
             
-                java-1
+                java笔记-1
             
         </h1>
         <time>
@@ -140,7 +140,7 @@
         
     
     <div class='cats'>
-        <a href="/categories/java/">java</a>
+        <a href="/categories/Java/">Java</a>
     </div>
 
 
@@ -150,14 +150,15 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <p>Q.String,StringBuffer和StringBuilder的区别<br>A.String是字符串常量，而StringBuilder和StringBuffer是字符串变量；由String创建的字符内容不可改变，而由StringBuffer和StringBuilder创建的字符内容可以改变；StringBuffer是线程安全的，StringBuilder是线程不安全的，但在可能的情况下先建议使用此，因为不需要考虑同步问题，<a id="more"></a>所以会更快，String是线程安全的，但是线程安全主要是针对那些需要维护内部状态改变的类，而String是不可以改变的，所有操作都不会对它进行修改，所以一般不讨论String的线程安全问题。<br>Q.HashSet怎样保证所存元素单一<br>A.</p>
+            <p>Q.String,StringBuffer和StringBuilder的区别<br>A.String是字符串常量，而StringBuilder和StringBuffer是字符串变量；由String创建的字符内容不可改变，而由StringBuffer和StringBuilder创建的字符内容可以改变；StringBuffer是线程安全的，StringBuilder是线程不安全的，但在可能的情况下先建议使用此，因为不需要考虑同步问题，<a id="more"></a>所以会更快，String是线程安全的，但是线程安全主要是针对那些需要维护内部状态改变的类，而String是不可以改变的，所有操作都不会对它进行修改，所以一般不讨论String的线程安全问题。<br>Q.HashSet怎样保证所存元素单一<br>A.HashSet的put方法源码为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public boolean add(E e) &#123;</span><br><span class="line">	return map.put(e, PRESENT)==null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中map为HashMap，PRESENT是final Object。<br>HashMap的put源码为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">public V put(K key, V value) &#123;</span><br><span class="line">	return putVal(hash(key), key, value, false, true);</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line">    * Implements Map.put and related methods</span><br><span class="line">    *</span><br><span class="line">    * @param hash key的hash值</span><br><span class="line">    * @param key 就是key</span><br><span class="line">    * @param value 就是value</span><br><span class="line">    * @param onlyIfAbsent if true, don&apos;t change existing value(如果为true，就不能改变已经存在的值)</span><br><span class="line">    * @param evict if false, the table is in creation mode(如果为false，表就在创造模式下)</span><br><span class="line">    * @return previous value, or null if none(返回先前的值或者null，如果输入的值为none)</span><br><span class="line">    */</span><br><span class="line">   final V putVal(int hash, K key, V value, boolean onlyIfAbsent,</span><br><span class="line">                  boolean evict) &#123;</span><br><span class="line">       Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; int n, i;</span><br><span class="line">       if ((tab = table) == null || (n = tab.length) == 0)</span><br><span class="line">           n = (tab = resize()).length;</span><br><span class="line">       if ((p = tab[i = (n - 1) &amp; hash]) == null)</span><br><span class="line">           tab[i] = newNode(hash, key, value, null);</span><br><span class="line">       else &#123;</span><br><span class="line">           Node&lt;K,V&gt; e; K k;</span><br><span class="line">           if (p.hash == hash &amp;&amp;</span><br><span class="line">               ((k = p.key) == key || (key != null &amp;&amp; key.equals(k))))</span><br><span class="line">               e = p;</span><br><span class="line">           else if (p instanceof TreeNode)</span><br><span class="line">               e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(this, tab, hash, key, value);</span><br><span class="line">           else &#123;</span><br><span class="line">               for (int binCount = 0; ; ++binCount) &#123;</span><br><span class="line">                   if ((e = p.next) == null) &#123;</span><br><span class="line">                       p.next = newNode(hash, key, value, null);</span><br><span class="line">                       if (binCount &gt;= TREEIFY_THRESHOLD - 1) // -1 for 1st</span><br><span class="line">                           treeifyBin(tab, hash);</span><br><span class="line">                       break;</span><br><span class="line">                   &#125;</span><br><span class="line">                   if (e.hash == hash &amp;&amp;</span><br><span class="line">                       ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))</span><br><span class="line">                       break;</span><br><span class="line">                   p = e;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           if (e != null) &#123; // existing mapping for key</span><br><span class="line">               V oldValue = e.value;</span><br><span class="line">               if (!onlyIfAbsent || oldValue == null)</span><br><span class="line">                   e.value = value;</span><br><span class="line">               afterNodeAccess(e);</span><br><span class="line">               return oldValue;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       ++modCount;</span><br><span class="line">       if (++size &gt; threshold)</span><br><span class="line">           resize();</span><br><span class="line">       afterNodeInsertion(evict);</span><br><span class="line">       return null;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
 
         </div>
 
         
             <div class="article-tags tags">
                 
-                    <a href="/tags/java/"><i class="fa fa-tag"></i>&nbsp;&nbsp;java</a>
+                    <a href="/tags/Java开发/"><i class="fa fa-tag"></i>&nbsp;&nbsp;Java开发</a>
                 
             </div>
         
@@ -187,7 +188,7 @@
 
 <script>
     window.subData = {
-        title: 'java-1',
+        title: 'java笔记-1',
         tools: true
     }
 </script>
@@ -209,13 +210,11 @@
     
     <ul class="entry">
     
-        <li><a class="flat-box" href="/categories/Java/"><div class='name'>Java</div><div class='badge'>1</div></a></li>
+        <li><a class="flat-box" href="/categories/Java/"><div class='name'>Java</div><div class='badge'>2</div></a></li>
     
         <li><a class="flat-box" href="/categories/Linux/"><div class='name'>Linux</div><div class='badge'>1</div></a></li>
     
         <li><a class="flat-box" href="/categories/docker/"><div class='name'>docker</div><div class='badge'>1</div></a></li>
-    
-        <li><a class="flat-box" href="/categories/java/"><div class='name'>java</div><div class='badge'>1</div></a></li>
     
         <li><a class="flat-box" href="/categories/python/"><div class='name'>python</div><div class='badge'>2</div></a></li>
     
@@ -232,7 +231,7 @@
 <div class="m_widget tagcloud">
     <div class="header"><i class="fa fa-tags" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
     <div class='content'>
-        <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hadoop/" style="font-size: 24px; color: #555">hadoop</a> <a href="/tags/hexo建站/" style="font-size: 14px; color: #999">hexo建站</a> <a href="/tags/java/" style="font-size: 14px; color: #999">java</a> <a href="/tags/python开发/" style="font-size: 14px; color: #999">python开发</a>
+        <a href="/tags/Java开发/" style="font-size: 14px; color: #999">Java开发</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hadoop/" style="font-size: 24px; color: #555">hadoop</a> <a href="/tags/hexo建站/" style="font-size: 14px; color: #999">hexo建站</a> <a href="/tags/python开发/" style="font-size: 14px; color: #999">python开发</a>
     </div>
 </div>
 
