@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mayi21.github.io/"/>
-  <updated>2019-06-06T10:30:45.378Z</updated>
+  <updated>2019-06-06T10:34:33.823Z</updated>
   <id>https://mayi21.github.io/</id>
   
   <author>
@@ -21,13 +21,15 @@
     <link href="https://mayi21.github.io/2019/06/06/Python-1/"/>
     <id>https://mayi21.github.io/2019/06/06/Python-1/</id>
     <published>2019-06-06T10:28:46.040Z</published>
-    <updated>2019-06-06T10:30:45.378Z</updated>
+    <updated>2019-06-06T10:34:33.823Z</updated>
     
-    <content type="html"><![CDATA[<p>1.random库的常用函数<br>函数|描述<br>—|—:  <a id="more"></a><br>seed(a=None)|初始化随机数种子，默认值为当前系统的时间<br>random()|生成[0.0,1.0)之间的随机小数<br>randint(a,b)|生成[a,b]之间的整数  </p>]]></content>
+    <content type="html"><![CDATA[<p>1.random库的常用函数<br>函数 | 描述  </p><ul><li>| -:  <a id="more"></a><br>seed(a=None) | 初始化随机数种子，默认值为当前系统的时间<br>random() | 生成[0.0,1.0)之间的随机小数<br>randint(a,b) | 生成[a,b]之间的整数  </li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;1.random库的常用函数&lt;br&gt;函数|描述&lt;br&gt;—|—:
+      &lt;p&gt;1.random库的常用函数&lt;br&gt;函数 | 描述  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;| -:
     
     </summary>
     
