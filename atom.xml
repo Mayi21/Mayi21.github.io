@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mayi21.github.io/"/>
-  <updated>2019-05-22T11:24:07.094Z</updated>
+  <updated>2019-06-06T10:30:45.378Z</updated>
   <id>https://mayi21.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python-1</title>
+    <link href="https://mayi21.github.io/2019/06/06/Python-1/"/>
+    <id>https://mayi21.github.io/2019/06/06/Python-1/</id>
+    <published>2019-06-06T10:28:46.040Z</published>
+    <updated>2019-06-06T10:30:45.378Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.random库的常用函数<br>函数|描述<br>—|—:  <a id="more"></a><br>seed(a=None)|初始化随机数种子，默认值为当前系统的时间<br>random()|生成[0.0,1.0)之间的随机小数<br>randint(a,b)|生成[a,b]之间的整数  </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.random库的常用函数&lt;br&gt;函数|描述&lt;br&gt;—|—:
+    
+    </summary>
+    
+      <category term="Python" scheme="https://mayi21.github.io/categories/Python/"/>
+    
+    
+      <category term="Python开发" scheme="https://mayi21.github.io/tags/Python%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>java笔记-1</title>
