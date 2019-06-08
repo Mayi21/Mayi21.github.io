@@ -157,15 +157,11 @@
     </section>
 
     <section class="article typo">
-        <p>1.分布式数据的容错性处理较为常用的方法有检查节点和更新记录。<br>检查节点的方法是对每个节点逐个进行检测，随时查询每个节点的运行情况。好处是便于主节点随时了解人物的真实数据运行情况，坏处就是资源消耗非常大，而且一旦出现问题，需要将数据在不同节点中搬运，反而更加耗费时间从而极大地拉低执行效率。<br>更新记录指的是运行的主节点并不总是查询每个分节点的运行状态，而是将相同的数据存放在不同的节点上面（一般不超过三个），各个工作节点按固定的周期更新在主节点中的运行记录，如果在一定的时间内主节点查询到的数据的更新状态超时或者有异常，则在存储相同数据的不同节点上重新启动数据计算工作。缺点在于如果数据量过大，更新数据和重新启动运行任务的资源耗费也相当大。<br>2.Spark架构<br>Driver:运行Application的main函数并且创建SparkContext；<br>Client:用户提交作业的客户端；<br>Worker:集群中任何可以运行Application代码的节点，运行一个或多个Executor的进程；<br>Executor:运行在worker的Task执行器，Executor启动线程池运行Task，并且负责将数据存在磁盘或者内存中。每个Application都会申请各自的Executor来处理任务；<br>SparkContext:整个应用的上下文，控制应用的声明周期；<br>RDD:Spark的基本计算单元，一组rdd形成执行的有向无环图RDD Graph；<br>DAG Scheduler:根据job构建基于stage的dag工作流，并提交stage给taskscheduler；<br>TaskScheduler:将Task分发给Executor执行；<br>SparkEnv:线程级别的上下文，储存运行时的重要组件的引用。  </p>
-<hr>
-<p>华丽分割线</p>
-<hr>
-<ol>
-<li>小测试中<br>1.scala中的nothing是所有类的子类。<br>2.ClusterManager是主节点。<br>3.scala反编译后可读可执行，是字节码文件。  </li>
-<li></li>
-</ol>
-
+        <p>1.分布式数据的容错性处理较为常用的方法有检查节点和更新记录。<br>检查节点的方法是对每个节点逐个进行检测，随时查询每个节点的运行情况。好处是便于主节点随时了解人物的真实数据运行情况，坏处就是资源消耗非常大，
+        
+            <div class="readmore">
+                <a href="/2019/06/06/Spark/" class="flat-box">READ MORE</a>
+            </div>
         
 
         
@@ -203,18 +199,11 @@
     </section>
 
     <section class="article typo">
-        <p>Q.调用方法带括号和不带括号的区别？<br>A.带括号返回的是计算结果，是一个值；不带括号返回的是这个函数体。  </p>
-<hr>
-<p>华丽分割线</p>
-<hr>
-<p>1.list去重：<br>List(Set(List))  </p>
-<hr>
-<hr>
-<p>1.math库的高等特殊函数<br>函数 | 数学表示 | 描述</p>
-<ul>
-<li>| :-: | -<br>math.erf(x) | $\frac{2}{\sqrt{\pi}}\lmoustache_{0}^{x}e^{-t^{2}}dt$ | 高斯误差，应用于概率论，统计学等领域<br>math.erfc(x) | $\frac{2}{\sqrt{\pi}}\lmoustache_{0}^{\infty}e^{-t^{2}}dt$ | 余补高斯误差函数，math.erfc(x)=1-math.erf(x)<br>math.gamma(x) | $\lmoustache_{0}^{\infty}x^{t-1}e^{-x}dx$ | 伽玛函数，也叫欧拉第二积分函数<br>math.lgamma(x) | ln(gamma(x)) | 伽马函数的自然对数  </li>
-</ul>
-
+        <p>Q.调用方法带括号和不带括号的区别？<br>A.带括号返回的是计算结果，是一个值；不带括号返回的是这个函数体。
+        
+            <div class="readmore">
+                <a href="/2019/06/06/Python-1/" class="flat-box">READ MORE</a>
+            </div>
         
 
         
@@ -252,7 +241,7 @@
     </section>
 
     <section class="article typo">
-        <p>Q.String,StringBuffer和StringBuilder的区别<br>A.String是字符串常量，而StringBuilder和StringBuffer是字符串变量；由String创建的字符内容不可改变，而由StringBuffer和StringBuilder创建的字符内容可以改变；StringBuffer是线程安全的，StringBuilder是线程不安全的，但在可能的情况下先建议使用此，因为不需要考虑同步问题，
+        <p>Q.String,StringBuffer和StringBuilder的区别<br>A.String是字符串常量，而StringBuilder和StringBuffer是字符串变量；由String创建的字符内容不可改变，而由StringBuffer和StringBuilder创建的字符内容可以改变；StringBuffer是线程安全的，
         
             <div class="readmore">
                 <a href="/2019/05/22/Java-1/" class="flat-box">READ MORE</a>
