@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
   <title>Python-1 | wiki</title>
@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="wiki">
 <meta property="og:description" content="Q.调用方法带括号和不带括号的区别？A.带括号返回的是计算结果，是一个值；不带括号返回的是这个函数体。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-07T15:18:10.707Z">
+<meta property="og:updated_time" content="2019-06-09T13:22:49.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-1">
 <meta name="twitter:description" content="Q.调用方法带括号和不带括号的区别？A.带括号返回的是计算结果，是一个值；不带括号返回的是这个函数体。">
@@ -37,11 +37,11 @@
     function setLoadingBarProgress(num) {
       document.getElementById('loading-bar').style.width=num+"%";
     }
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
-  <div id="loading-bar-wrapper">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
   <div id="loading-bar"></div>
 </div>
 
@@ -146,6 +146,13 @@
 
     </section>
     
+        <section class="toc-wrapper">
+            <div class="header"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class='content'>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#—"><span class="toc-number">1.</span> <span class="toc-text">—-</span></a></li></ol>
+            </div>
+        </section>
+    
 
     <section class="article typo">
 
@@ -155,9 +162,7 @@
 <p>华丽分割线</p>
 <hr>
 <p>1.list去重：<br>List(Set(List))  </p>
-<hr>
-<hr>
-<p>1.math库的高等特殊函数<br>函数 | 数学表示 | 描述</p>
+<h2 id="—"><a href="#—" class="headerlink" title="—-"></a>—-</h2><p>1.math库的高等特殊函数<br>函数 | 数学表示 | 描述</p>
 <ul>
 <li>| :-: | -<br>math.erf(x) | $\frac{2}{\sqrt{\pi}}\lmoustache_{0}^{x}e^{-t^{2}}dt$ | 高斯误差，应用于概率论，统计学等领域<br>math.erfc(x) | $\frac{2}{\sqrt{\pi}}\lmoustache_{0}^{\infty}e^{-t^{2}}dt$ | 余补高斯误差函数，math.erfc(x)=1-math.erf(x)<br>math.gamma(x) | $\lmoustache_{0}^{\infty}x^{t-1}e^{-x}dx$ | 伽玛函数，也叫欧拉第二积分函数<br>math.lgamma(x) | ln(gamma(x)) | 伽马函数的自然对数  </li>
 </ul>
@@ -317,6 +322,23 @@ if(!ROOT.endsWith('/'))ROOT += '/';
     
 
 
-  <script>setLoadingBarProgress(100);</script>
+  <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>
