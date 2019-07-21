@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Category: docker | wiki</title>
+  <title>Category: Docker | wiki</title>
   <meta name="description" content="坚持不懈的坚持" />
   <meta name="keywords" content="" />
   <meta name="HandheldFriendly" content="True" />
@@ -15,7 +15,7 @@
   <meta name="description" content="坚持不懈的坚持">
 <meta property="og:type" content="website">
 <meta property="og:title" content="wiki">
-<meta property="og:url" content="https://mayi21.github.io/categories/docker/index.html">
+<meta property="og:url" content="https://mayi21.github.io/categories/Docker/index.html">
 <meta property="og:site_name" content="wiki">
 <meta property="og:description" content="坚持不懈的坚持">
 <meta property="og:locale" content="zh-CN">
@@ -126,7 +126,7 @@
       <div class='l_main'>
         
     <script>
-        window.subData= { title:'category : docker'}
+        window.subData= { title:'category : Docker'}
     </script>
 
 
@@ -137,36 +137,41 @@
     <article class="post reveal">
     <section class="meta">
         <h2 class="title">
-            <a href="/2019/03/11/创建支持ssh服务的镜像/">
+            <a href="/2019/07/21/docker/">
                 
-                    创建支持ssh的镜像服务
+                    Docker-1
                 
             </a>
         </h2>
         <time>
-            2019-03-11 星期一
+            2019-07-21 星期日
         </time>
         
     
     <div class='cats'>
-        <a href="/categories/docker/">docker</a>
+        <a href="/categories/Docker/">Docker</a>
     </div>
 
 
     </section>
 
     <section class="article typo">
-        <p>1.先安装docker,这里不再赘述<br>2.使用ubuntu镜像来创建容器:<code>docker pull ubuntu</code>,然后启动容器:<code>docker run -it ubuntu /bin/bash</code>
-        
-            <div class="readmore">
-                <a href="/2019/03/11/创建支持ssh服务的镜像/" class="flat-box">READ MORE</a>
-            </div>
+        <p>1.下载镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull ubuntu</span><br><span class="line">sudo docker pull ubuntu:14.04 (by appoint tag pull given image)</span><br><span class="line">(以上命令相对应于) sudo docker pull registry.hub.docker.com/ubuntu:latest (下载注册服务器为registry.hub.docker.com中ubuntu仓库的下载标记为latest的镜像)</span><br></pre></td></tr></table></figure></p>
+<!-- -->
+<p>2.运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -t -i ubuntu /bin/bash    #(下载镜像到本地，利用镜像创建一个容器，在中运行bash应用)</span><br></pre></td></tr></table></figure></p>
+<p>3.查看镜像信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker images</span><br></pre></td></tr></table></figure></p>
+<p>4.更改镜像的tag<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker tag dl.dockerpool.com:5000/ubuntu:latest ubuntu:latest</span><br></pre></td></tr></table></figure></p>
+<p>5.搜寻镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker search mysql</span><br></pre></td></tr></table></figure></p>
+<p>6.查看镜像信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect 5506de2b643b    #镜像ID</span><br></pre></td></tr></table></figure></p>
+<p>7.删除镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker rmi IMAGE[IMAGE...] #其中</span><br><span class="line">sudo docker rmi dl.dockerpool.com:5000/ubuntu</span><br></pre></td></tr></table></figure></p>
+<p>8.退出容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exit #退出并且关闭容器</span><br><span class="line">Ctrl + P + Q #退出但不关闭容器</span><br><span class="line">docker attach &lt;ID&gt; #重新进入未关闭的容器</span><br></pre></td></tr></table></figure></p>
+
         
 
         
             <div class="full-width auto-padding tags">
                 
-                    <a href="/tags/docker/"><i class="fa fa-tag"></i>&nbsp;&nbsp;docker</a>
+                    <a href="/tags/Docker开发/"><i class="fa fa-tag"></i>&nbsp;&nbsp;Docker开发</a>
                 
             </div>
         
@@ -195,9 +200,13 @@
     
     <ul class="entry">
     
+        <li><a class="flat-box" href="/categories/Docker/"><div class='name'>Docker</div><div class='badge'>1</div></a></li>
+    
         <li><a class="flat-box" href="/categories/Java/"><div class='name'>Java</div><div class='badge'>2</div></a></li>
     
         <li><a class="flat-box" href="/categories/Linux/"><div class='name'>Linux</div><div class='badge'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/ML/"><div class='name'>ML</div><div class='badge'>1</div></a></li>
     
         <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
     
@@ -208,6 +217,8 @@
         <li><a class="flat-box" href="/categories/python/"><div class='name'>python</div><div class='badge'>2</div></a></li>
     
         <li><a class="flat-box" href="/categories/建站/"><div class='name'>建站</div><div class='badge'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/杂货/"><div class='name'>杂货</div><div class='badge'>3</div></a></li>
     
     </ul>
     
@@ -220,7 +231,7 @@
 <div class="m_widget tagcloud">
     <div class="header"><i class="fa fa-tags" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
     <div class='content'>
-        <a href="/tags/Java开发/" style="font-size: 14px; color: #999">Java开发</a> <a href="/tags/Python开发/" style="font-size: 24px; color: #555">Python开发</a> <a href="/tags/Spark开发/" style="font-size: 14px; color: #999">Spark开发</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hadoop/" style="font-size: 24px; color: #555">hadoop</a> <a href="/tags/hexo建站/" style="font-size: 14px; color: #999">hexo建站</a>
+        <a href="/tags/Docker开发/" style="font-size: 14px; color: #999">Docker开发</a> <a href="/tags/Java开发/" style="font-size: 14px; color: #999">Java开发</a> <a href="/tags/Python开发/" style="font-size: 19px; color: #777">Python开发</a> <a href="/tags/Spark开发/" style="font-size: 14px; color: #999">Spark开发</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hadoop/" style="font-size: 19px; color: #777">hadoop</a> <a href="/tags/hexo建站/" style="font-size: 14px; color: #999">hexo建站</a> <a href="/tags/机器学习/" style="font-size: 14px; color: #999">机器学习</a> <a href="/tags/杂货/" style="font-size: 24px; color: #555">杂货</a>
     </div>
 </div>
 

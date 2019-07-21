@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="wiki">
 <meta property="og:description" content="1.分布式数据的容错性处理较为常用的方法有检查节点和更新记录。检查节点的方法是对每个节点逐个进行检测，随时查询每个节点的运行情况。好处是便于主节点随时了解人物的真实数据运行情况，坏处就是资源消耗非常大，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-21T14:23:59.932Z">
+<meta property="og:updated_time" content="2019-07-21T14:29:22.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark-1">
 <meta name="twitter:description" content="1.分布式数据的容错性处理较为常用的方法有检查节点和更新记录。检查节点的方法是对每个节点逐个进行检测，随时查询每个节点的运行情况。好处是便于主节点随时了解人物的真实数据运行情况，坏处就是资源消耗非常大，">
@@ -156,7 +156,7 @@
 <hr>
 <ol>
 <li>小测试中<br>1.scala中的nothing是所有类的子类。<br>2.ClusterManager是主节点。<br>3.scala反编译后可读可执行，是字节码文件.  </li>
-<li>二次小测试<br>1.stage的切分发生在rdd计算发生shuffle时<br>2.算子量比较：SparkSql &gt; Spark &gt; SparkStreaming<br>3.SparkStreaming的时间窗口是可以有间断的<br>4.在yarn环境中，worker寄宿在container中，worker的生命周期并不受jop的执行情况所决定。<br>5.执行流程如下：1.DAGScheduler对Application进行分析，2.然后根据各RDD之间的依赖关系划分Stage，3.根据这些划分好的Stage，对应每个Stage会生成一组Task，4.将Task Set提交给TaskScheduler，5.TaskScheduler启动Executor进行任务的计算<br>6.聚类是从已知到未知，分类是从未知到已知<br>7.</li>
+<li>二次小测试<br>1.stage的切分发生在rdd计算发生shuffle时<br>2.算子量比较：SparkSql &gt; Spark &gt; SparkStreaming<br>3.SparkStreaming的时间窗口是可以有间断的<br>4.在yarn环境中，worker寄宿在container中，worker的生命周期并不受jop的执行情况所决定。<br>5.执行流程如下：1.DAGScheduler对Application进行分析，2.然后根据各RDD之间的依赖关系划分Stage，3.根据这些划分好的Stage，对应每个Stage会生成一组Task，4.将Task Set提交给TaskScheduler，5.TaskScheduler启动Executor进行任务的计算<br>6.聚类是从已知到未知，分类是从未知到已知  </li>
 </ol>
 <p>在idea构建sparkjar包：<br>1.在idea中新建一个scala的sbt工程，然后再build.sbt中引入合适的spark的包（此处有点像maven）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name := &quot;spark-idea&quot;</span><br><span class="line">version := &quot;0.1&quot;</span><br><span class="line">scalaVersion := &quot;2.12.8&quot;</span><br><span class="line">libraryDependencies ++= Seq(</span><br><span class="line">  &quot;org.apache.spark&quot; %% &quot;spark-core&quot; % &quot;2.1.2&quot;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
 <p>2.新建一个scala的object，然后写上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val conf = new SparkConf().setAppName(&quot;WordCount&quot;)</span><br><span class="line">val sc = new SparkContext(conf)</span><br></pre></td></tr></table></figure></p>
@@ -176,6 +176,13 @@
 
         
             <div class="art-item-footer">
+                
+                    <span class="art-item-left">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;
+                        <a href="/2019/07/21/docker/" rel="prev" title="Docker-1">
+                            Docker-1
+                        </a>
+                    </span>
                 
                 
                     <span class="art-item-right">
@@ -221,9 +228,13 @@
     
     <ul class="entry">
     
+        <li><a class="flat-box" href="/categories/Docker/"><div class='name'>Docker</div><div class='badge'>1</div></a></li>
+    
         <li><a class="flat-box" href="/categories/Java/"><div class='name'>Java</div><div class='badge'>2</div></a></li>
     
         <li><a class="flat-box" href="/categories/Linux/"><div class='name'>Linux</div><div class='badge'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/ML/"><div class='name'>ML</div><div class='badge'>1</div></a></li>
     
         <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
     
@@ -234,6 +245,8 @@
         <li><a class="flat-box" href="/categories/python/"><div class='name'>python</div><div class='badge'>2</div></a></li>
     
         <li><a class="flat-box" href="/categories/建站/"><div class='name'>建站</div><div class='badge'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/杂货/"><div class='name'>杂货</div><div class='badge'>3</div></a></li>
     
     </ul>
     
@@ -246,7 +259,7 @@
 <div class="m_widget tagcloud">
     <div class="header"><i class="fa fa-tags" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
     <div class='content'>
-        <a href="/tags/Java开发/" style="font-size: 14px; color: #999">Java开发</a> <a href="/tags/Python开发/" style="font-size: 24px; color: #555">Python开发</a> <a href="/tags/Spark开发/" style="font-size: 14px; color: #999">Spark开发</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hadoop/" style="font-size: 24px; color: #555">hadoop</a> <a href="/tags/hexo建站/" style="font-size: 14px; color: #999">hexo建站</a>
+        <a href="/tags/Docker开发/" style="font-size: 14px; color: #999">Docker开发</a> <a href="/tags/Java开发/" style="font-size: 14px; color: #999">Java开发</a> <a href="/tags/Python开发/" style="font-size: 19px; color: #777">Python开发</a> <a href="/tags/Spark开发/" style="font-size: 14px; color: #999">Spark开发</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hadoop/" style="font-size: 19px; color: #777">hadoop</a> <a href="/tags/hexo建站/" style="font-size: 14px; color: #999">hexo建站</a> <a href="/tags/机器学习/" style="font-size: 14px; color: #999">机器学习</a> <a href="/tags/杂货/" style="font-size: 24px; color: #555">杂货</a>
     </div>
 </div>
 
