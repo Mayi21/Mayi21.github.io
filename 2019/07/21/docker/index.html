@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="wiki">
 <meta property="og:description" content="1.下载镜像123sudo docker pull ubuntusudo docker pull ubuntu:14.04 (by appoint tag pull given image)(以上命令相对应于) sudo docker pull registry.hub.docker.com/ubuntu:latest (下载注册服务器为registry.hub.docker.com中ubuntu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-21T14:36:16.293Z">
+<meta property="og:updated_time" content="2019-07-21T14:49:09.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker-1">
 <meta name="twitter:description" content="1.下载镜像123sudo docker pull ubuntusudo docker pull ubuntu:14.04 (by appoint tag pull given image)(以上命令相对应于) sudo docker pull registry.hub.docker.com/ubuntu:latest (下载注册服务器为registry.hub.docker.com中ubuntu">
@@ -151,7 +151,7 @@
 
         <div class="article-entry" itemprop="articleBody">
             <p>1.下载镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull ubuntu</span><br><span class="line">sudo docker pull ubuntu:14.04 (by appoint tag pull given image)</span><br><span class="line">(以上命令相对应于) sudo docker pull registry.hub.docker.com/ubuntu:latest (下载注册服务器为registry.hub.docker.com中ubuntu仓库的下载标记为latest的镜像)</span><br></pre></td></tr></table></figure></p>
-<!-- -->
+<a id="more"></a>
 <p>2.运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -t -i ubuntu /bin/bash    #(下载镜像到本地，利用镜像创建一个容器，在中运行bash应用)</span><br></pre></td></tr></table></figure></p>
 <p>3.查看镜像信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker images</span><br></pre></td></tr></table></figure></p>
 <p>4.更改镜像的tag<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker tag dl.dockerpool.com:5000/ubuntu:latest ubuntu:latest</span><br></pre></td></tr></table></figure></p>

@@ -157,15 +157,10 @@
 
     <section class="article typo">
         <p>1.下载镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull ubuntu</span><br><span class="line">sudo docker pull ubuntu:14.04 (by appoint tag pull given image)</span><br><span class="line">(以上命令相对应于) sudo docker pull registry.hub.docker.com/ubuntu:latest (下载注册服务器为registry.hub.docker.com中ubuntu仓库的下载标记为latest的镜像)</span><br></pre></td></tr></table></figure></p>
-<!-- -->
-<p>2.运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -t -i ubuntu /bin/bash    #(下载镜像到本地，利用镜像创建一个容器，在中运行bash应用)</span><br></pre></td></tr></table></figure></p>
-<p>3.查看镜像信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker images</span><br></pre></td></tr></table></figure></p>
-<p>4.更改镜像的tag<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker tag dl.dockerpool.com:5000/ubuntu:latest ubuntu:latest</span><br></pre></td></tr></table></figure></p>
-<p>5.搜寻镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker search mysql</span><br></pre></td></tr></table></figure></p>
-<p>6.查看镜像信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect 5506de2b643b    #镜像ID</span><br></pre></td></tr></table></figure></p>
-<p>7.删除镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker rmi IMAGE[IMAGE...] #其中</span><br><span class="line">sudo docker rmi dl.dockerpool.com:5000/ubuntu</span><br></pre></td></tr></table></figure></p>
-<p>8.退出容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exit #退出并且关闭容器</span><br><span class="line">Ctrl + P + Q #退出但不关闭容器</span><br><span class="line">docker attach &lt;ID&gt; #重新进入未关闭的容器</span><br></pre></td></tr></table></figure></p>
-
+        
+            <div class="readmore">
+                <a href="/2019/07/21/docker/" class="flat-box">READ MORE</a>
+            </div>
         
 
         
