@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="wiki">
 <meta property="og:description" content="Q.String,StringBuffer和StringBuilder的区别A.String是字符串常量，而StringBuilder和StringBuffer是字符串变量；由String创建的字符内容不可改变，而由StringBuffer和StringBuilder创建的字符内容可以改变；StringBuffer是线程安全的，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-09T12:54:00.211Z">
+<meta property="og:updated_time" content="2019-06-09T13:33:30.507Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java笔记-1">
 <meta name="twitter:description" content="Q.String,StringBuffer和StringBuilder的区别A.String是字符串常量，而StringBuilder和StringBuffer是字符串变量；由String创建的字符内容不可改变，而由StringBuffer和StringBuilder创建的字符内容可以改变；StringBuffer是线程安全的，">
@@ -186,6 +186,7 @@
 <p>分布式算法：<br>轮询算法，哈希算法，最少连接算法，相应速度算法，加权法等，常用的就是哈希算法。哈希算法就是对hash结果取余数(hash() mod N):对机器编号从0到N-1，按照自定义的 hash()算法，对每个请求的hash()值按N取模，得到余数i，然后将请求分发到编号为i的机器。但这样的算法方法存在致命问题，如果某一台机器宕机，那么应该落在该机器的请求就无法得到正确的处理，这时需要将当掉的服务器从算法从去除，此时候会有(N-1)/N的服务器的缓存数据需要重新进行计算;如果新增一台机器，会有N /(N+1)的服务器的缓存数据需要进行重新计算。对于系统而言，这通常是不可接受的颠簸(因为这意味着大量缓存的失效或者数据需要转移)。那么，如何设计一个负载均衡策略，使得受到影响的请求尽可能的少呢?一致性哈希将整个哈希值空间按照顺时针方向组织成一个虚拟的环，下一步将服务器的ip或者关键字进行哈希，映射到环上，然后根据数据的key计算哈希同时映射到环上，从此位置顺时针走，遇到的第一个服务器就是该数据所存放的位置。删除或者增加服务器受到影响的只是一部分数据。当服务器过少，且两台服务器在环上的位置比较近，则容易造成数据倾斜的问题，在前的一个服务器得到大量的数据，为了解决这种数据倾斜的问题，我们将一个服务器节点计算多个哈希，每个计算结果的位置都放在环上，称为虚拟节点，这样就能够抑制数据倾斜问题。</p>
 <p>ConCurrentHashMap解析：<br>JDK1.8的底层是散列表+红黑树，支持高并发访问和更新，他是线程安全的，key和value都不允许为空。JDK1.7的实现是segments+HashEntry数组。<br>有了Hashtable为啥需要ConCurrentHashMap？<br>Hashtable是在每个方法上都加上了Synchronized完成同步，效率低下。<br>ConcurrentHashMap通过在部分加锁和利用CAS算法来实现同步。</p>
 <p>Netty小知识。<br>netty具有并发高，传输快，封装好。<br>并发高是因为netty基于NIO</p>
+<p>$\frac{2}{12}$</p>
 
         </div>
 
@@ -342,6 +343,23 @@ if(!ROOT.endsWith('/'))ROOT += '/';
     
 
 
-  <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>

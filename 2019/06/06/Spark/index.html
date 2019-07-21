@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="wiki">
 <meta property="og:description" content="1.分布式数据的容错性处理较为常用的方法有检查节点和更新记录。检查节点的方法是对每个节点逐个进行检测，随时查询每个节点的运行情况。好处是便于主节点随时了解人物的真实数据运行情况，坏处就是资源消耗非常大，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-09T13:09:24.955Z">
+<meta property="og:updated_time" content="2019-07-21T14:23:59.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark-1">
 <meta name="twitter:description" content="1.分布式数据的容错性处理较为常用的方法有检查节点和更新记录。检查节点的方法是对每个节点逐个进行检测，随时查询每个节点的运行情况。好处是便于主节点随时了解人物的真实数据运行情况，坏处就是资源消耗非常大，">
@@ -155,9 +155,14 @@
 <p>华丽分割线</p>
 <hr>
 <ol>
-<li>小测试中<br>1.scala中的nothing是所有类的子类。<br>2.ClusterManager是主节点。<br>3.scala反编译后可读可执行，是字节码文件。  </li>
-<li></li>
+<li>小测试中<br>1.scala中的nothing是所有类的子类。<br>2.ClusterManager是主节点。<br>3.scala反编译后可读可执行，是字节码文件.  </li>
+<li>二次小测试<br>1.stage的切分发生在rdd计算发生shuffle时<br>2.算子量比较：SparkSql &gt; Spark &gt; SparkStreaming<br>3.SparkStreaming的时间窗口是可以有间断的<br>4.在yarn环境中，worker寄宿在container中，worker的生命周期并不受jop的执行情况所决定。<br>5.执行流程如下：1.DAGScheduler对Application进行分析，2.然后根据各RDD之间的依赖关系划分Stage，3.根据这些划分好的Stage，对应每个Stage会生成一组Task，4.将Task Set提交给TaskScheduler，5.TaskScheduler启动Executor进行任务的计算<br>6.聚类是从已知到未知，分类是从未知到已知<br>7.</li>
 </ol>
+<p>在idea构建sparkjar包：<br>1.在idea中新建一个scala的sbt工程，然后再build.sbt中引入合适的spark的包（此处有点像maven）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name := &quot;spark-idea&quot;</span><br><span class="line">version := &quot;0.1&quot;</span><br><span class="line">scalaVersion := &quot;2.12.8&quot;</span><br><span class="line">libraryDependencies ++= Seq(</span><br><span class="line">  &quot;org.apache.spark&quot; %% &quot;spark-core&quot; % &quot;2.1.2&quot;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>2.新建一个scala的object，然后写上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val conf = new SparkConf().setAppName(&quot;WordCount&quot;)</span><br><span class="line">val sc = new SparkContext(conf)</span><br></pre></td></tr></table></figure></p>
+<p>3.配置jar包，在ProjectStrcture的Artifacts中新建一个空jar包，然后选择当前的main函数，然后就可以build了<br>4.首先启动spark的master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./sbin/start-master.sh</span><br></pre></td></tr></table></figure></p>
+<p>然后启动spark的worker<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/spark-class org.apache.spark.deploy.worker.Worker spark://localhost:7077</span><br></pre></td></tr></table></figure></p>
+<p>然后提交作业<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/spark-submit --master spark://localhost:7077 --class &lt;加上包名&gt;.WordCount /home/lucy/learnspark.jar</span><br></pre></td></tr></table></figure></p>
 
         </div>
 
