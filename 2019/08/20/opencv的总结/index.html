@@ -12,18 +12,18 @@
   <link rel="shortcut icon" href="/">
   <link rel="alternate" href="/atom.xml" title="wiki">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123import cv2  import numpy as np  import matplotlib.pyplot as plt&amp;lt;!-- more --&amp;gt; 读取图片image = cv2.imread(&amp;#39;image.jpg&amp;#39;,flags=cv2.IMREAD_COLOR) 边界填充1repImage1 = cv2.copyMakeBorder(image, top=">
+  <meta name="description" content="123import cv2  import numpy as np  import matplotlib.pyplot as plt">
 <meta name="keywords" content="opencv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="opencv总结">
 <meta property="og:url" content="https://mayi21.github.io/2019/08/20/opencv的总结/index.html">
 <meta property="og:site_name" content="wiki">
-<meta property="og:description" content="123import cv2  import numpy as np  import matplotlib.pyplot as plt&amp;lt;!-- more --&amp;gt; 读取图片image = cv2.imread(&amp;#39;image.jpg&amp;#39;,flags=cv2.IMREAD_COLOR) 边界填充1repImage1 = cv2.copyMakeBorder(image, top=">
+<meta property="og:description" content="123import cv2  import numpy as np  import matplotlib.pyplot as plt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-20T04:47:16.927Z">
+<meta property="og:updated_time" content="2019-08-20T05:09:01.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="opencv总结">
-<meta name="twitter:description" content="123import cv2  import numpy as np  import matplotlib.pyplot as plt&amp;lt;!-- more --&amp;gt; 读取图片image = cv2.imread(&amp;#39;image.jpg&amp;#39;,flags=cv2.IMREAD_COLOR) 边界填充1repImage1 = cv2.copyMakeBorder(image, top=">
+<meta name="twitter:description" content="123import cv2  import numpy as np  import matplotlib.pyplot as plt">
 
   <link rel="shortcut icon" href="" />
   <link rel="icon" href="" />
@@ -157,7 +157,8 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import cv2  </span><br><span class="line">import numpy as np  </span><br><span class="line">import matplotlib.pyplot as plt&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import cv2  </span><br><span class="line">import numpy as np  </span><br><span class="line">import matplotlib.pyplot as plt</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h1 id="读取图片"><a href="#读取图片" class="headerlink" title="读取图片"></a>读取图片</h1><p><code>image = cv2.imread(&#39;image.jpg&#39;,flags=cv2.IMREAD_COLOR)</code></p>
 <h1 id="边界填充"><a href="#边界填充" class="headerlink" title="边界填充"></a>边界填充</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repImage1 = cv2.copyMakeBorder(image, top=50, bottom=50, left=50, right=50, borderType=cv2.BORDER_CONSTANT)</span><br></pre></td></tr></table></figure>
 <h2 id="borderType有"><a href="#borderType有" class="headerlink" title="borderType有"></a>borderType有</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cv2.BORDER_CONSTANT  </span><br><span class="line">cv2.BORDER_DEFAULT  </span><br><span class="line">cv2.BORDER_ISOLATED  </span><br><span class="line">cv2.BORDER_REFLECT  </span><br><span class="line">cv2.BORDER_REFLECT101  </span><br><span class="line">cv2.BORDER_REFLECT_101  </span><br><span class="line">cv2.BORDER_REPLICATE  </span><br><span class="line">cv2.BORDER_TRANSPARENT  </span><br><span class="line">cv2.BORDER_WRAP</span><br></pre></td></tr></table></figure>
