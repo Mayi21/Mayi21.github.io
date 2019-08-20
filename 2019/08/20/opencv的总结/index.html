@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Category: Python | wiki</title>
+  <title>opencv总结 | wiki</title>
   <meta name="description" content="坚持不懈的坚持" />
   <meta name="keywords" content="" />
   <meta name="HandheldFriendly" content="True" />
@@ -12,16 +12,18 @@
   <link rel="shortcut icon" href="/">
   <link rel="alternate" href="/atom.xml" title="wiki">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="坚持不懈的坚持">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wiki">
-<meta property="og:url" content="https://mayi21.github.io/categories/Python/index.html">
+  <meta name="description" content="123import cv2  import numpy as np  import matplotlib.pyplot as plt&amp;lt;!-- more --&amp;gt; 读取图片image = cv2.imread(&amp;#39;image.jpg&amp;#39;,flags=cv2.IMREAD_COLOR) 边界填充1repImage1 = cv2.copyMakeBorder(image, top=">
+<meta name="keywords" content="opencv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="opencv总结">
+<meta property="og:url" content="https://mayi21.github.io/2019/08/20/opencv的总结/index.html">
 <meta property="og:site_name" content="wiki">
-<meta property="og:description" content="坚持不懈的坚持">
+<meta property="og:description" content="123import cv2  import numpy as np  import matplotlib.pyplot as plt&amp;lt;!-- more --&amp;gt; 读取图片image = cv2.imread(&amp;#39;image.jpg&amp;#39;,flags=cv2.IMREAD_COLOR) 边界填充1repImage1 = cv2.copyMakeBorder(image, top=">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-20T04:47:16.927Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wiki">
-<meta name="twitter:description" content="坚持不懈的坚持">
+<meta name="twitter:title" content="opencv总结">
+<meta name="twitter:description" content="123import cv2  import numpy as np  import matplotlib.pyplot as plt&amp;lt;!-- more --&amp;gt; 读取图片image = cv2.imread(&amp;#39;image.jpg&amp;#39;,flags=cv2.IMREAD_COLOR) 边界填充1repImage1 = cv2.copyMakeBorder(image, top=">
 
   <link rel="shortcut icon" href="" />
   <link rel="icon" href="" />
@@ -124,27 +126,16 @@
   <div class="l_body">
     <div class='container clearfix'>
       <div class='l_main'>
-        
-    <script>
-        window.subData= { title:'category : Python'}
-    </script>
-
-
-<section class="post-list">
-    
-    
-        <div class='post-wrapper'>
-    <article class="post reveal">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2019/08/20/opencv的总结/">
-                
-                    opencv总结
-                
-            </a>
-        </h2>
+        <article id="post-opencv的总结" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        <h1 class="title">
+            
+                opencv总结
+            
+        </h1>
         <time>
-            2019-08-20 星期二
+            2019-08-20 星期二&nbsp;&nbsp;
+            <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
         </time>
         
     
@@ -154,9 +145,19 @@
 
 
     </section>
+    
+        <section class="toc-wrapper">
+            <div class="header"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class='content'>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#读取图片"><span class="toc-number">1.</span> <span class="toc-text">读取图片</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#边界填充"><span class="toc-number">2.</span> <span class="toc-text">边界填充</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#borderType有"><span class="toc-number">2.1.</span> <span class="toc-text">borderType有</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图像梯度计算"><span class="toc-number">3.</span> <span class="toc-text">图像梯度计算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sobel-算子"><span class="toc-number">3.1.</span> <span class="toc-text">Sobel 算子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应该是直接Sobel处理一下即可，但是不知道为什么，经过convertScaleAbs转化更好"><span class="toc-number">3.2.</span> <span class="toc-text">应该是直接Sobel处理一下即可，但是不知道为什么，经过convertScaleAbs转化更好</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#x方向计算"><span class="toc-number">3.2.1.</span> <span class="toc-text">x方向计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#y方向计算"><span class="toc-number">3.2.2.</span> <span class="toc-text">y方向计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#x方向和y方向上同时计算的话，不能直接计算，而是使用-cv2-addWeighted-sobelX-0-5-sobelY-0-5-0"><span class="toc-number">3.2.3.</span> <span class="toc-text">x方向和y方向上同时计算的话，不能直接计算，而是使用 cv2.addWeighted(sobelX, 0.5, sobelY, 0.5, 0)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scharr-算子，核之间的水平差异与竖直差异更大"><span class="toc-number">3.3.</span> <span class="toc-text">Scharr 算子，核之间的水平差异与竖直差异更大</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算x方向"><span class="toc-number">3.3.1.</span> <span class="toc-text">计算x方向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算y方向"><span class="toc-number">3.3.2.</span> <span class="toc-text">计算y方向</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Laplacian算子，更注重中心点和四个正方向的点，对噪音比较敏感"><span class="toc-number">3.4.</span> <span class="toc-text">Laplacian算子，更注重中心点和四个正方向的点，对噪音比较敏感</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#将图片的颜色空间进行转化"><span class="toc-number">4.</span> <span class="toc-text">将图片的颜色空间进行转化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#阈值操作-thresh为阈值"><span class="toc-number">5.</span> <span class="toc-text">阈值操作,thresh为阈值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#阈值类型"><span class="toc-number">6.</span> <span class="toc-text">阈值类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#滤波，图像平滑操作"><span class="toc-number">7.</span> <span class="toc-text">滤波，图像平滑操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#均值滤波"><span class="toc-number">7.1.</span> <span class="toc-text">均值滤波</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高斯滤波"><span class="toc-number">7.2.</span> <span class="toc-text">高斯滤波</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中值滤波"><span class="toc-number">7.3.</span> <span class="toc-text">中值滤波</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方框滤波"><span class="toc-number">7.4.</span> <span class="toc-text">方框滤波</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方框滤波，基本和均值滤波一样-可以选择正则化"><span class="toc-number">7.4.1.</span> <span class="toc-text">方框滤波，基本和均值滤波一样 可以选择正则化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#做归一化就是均值滤波"><span class="toc-number">7.4.2.</span> <span class="toc-text">做归一化就是均值滤波</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#归一化就是最后将加到一起的值求平均值"><span class="toc-number">7.4.3.</span> <span class="toc-text">归一化就是最后将加到一起的值求平均值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则化-卷积核是331-卷积完-sum-9-等于331-9"><span class="toc-number">7.4.4.</span> <span class="toc-text">正则化 卷积核是331 卷积完 sum / 9 等于331/9</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图片更改图形"><span class="toc-number">8.</span> <span class="toc-text">图片更改图形</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图片叠加"><span class="toc-number">9.</span> <span class="toc-text">图片叠加</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#newImage-0-5-image-0-5-image-0"><span class="toc-number">9.1.</span> <span class="toc-text">newImage = 0.5  image + 0.5  image + 0</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图片展示"><span class="toc-number">10.</span> <span class="toc-text">图片展示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图片的重新写入"><span class="toc-number">11.</span> <span class="toc-text">图片的重新写入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#视频操作"><span class="toc-number">12.</span> <span class="toc-text">视频操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Canny-src-minVal-maxVal-检测"><span class="toc-number">13.</span> <span class="toc-text">Canny(src, minVal, maxVal) 检测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度值-gt-maxval-则是边界"><span class="toc-number">13.1.</span> <span class="toc-text">梯度值 &gt; maxval 则是边界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#minval-lt-梯度值-lt-maxval-若连有边界则保留，否则丢弃"><span class="toc-number">13.2.</span> <span class="toc-text">minval &lt; 梯度值 &lt; maxval 若连有边界则保留，否则丢弃</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#minval-gt-梯度值-舍弃"><span class="toc-number">13.3.</span> <span class="toc-text">minval &gt; 梯度值 舍弃</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#形态学操作"><span class="toc-number">14.</span> <span class="toc-text">形态学操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#闭运算-先膨胀-再腐蚀"><span class="toc-number">14.1.</span> <span class="toc-text">闭运算 先膨胀 再腐蚀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开运算-先腐蚀-再膨胀"><span class="toc-number">14.2.</span> <span class="toc-text">开运算 先腐蚀 再膨胀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度运算"><span class="toc-number">14.3.</span> <span class="toc-text">梯度运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#礼帽-原始输入-开运算-突出明亮区域"><span class="toc-number">14.4.</span> <span class="toc-text">礼帽 = 原始输入 - 开运算 突出明亮区域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#黑帽-闭运算-原始输入"><span class="toc-number">14.5.</span> <span class="toc-text">黑帽 = 闭运算 - 原始输入</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图像金字塔"><span class="toc-number">15.</span> <span class="toc-text">图像金字塔</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#高斯金字塔"><span class="toc-number">15.1.</span> <span class="toc-text">高斯金字塔</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#向下采样（缩小）"><span class="toc-number">15.1.1.</span> <span class="toc-text">向下采样（缩小）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#向上采样（放大）"><span class="toc-number">15.1.2.</span> <span class="toc-text">向上采样（放大）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#上采样"><span class="toc-number">15.1.2.1.</span> <span class="toc-text">上采样</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#下采样"><span class="toc-number">15.1.2.2.</span> <span class="toc-text">下采样</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拉普拉斯金字塔"><span class="toc-number">15.2.</span> <span class="toc-text">拉普拉斯金字塔</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#向下采样，将下采样再上采样，然后用原图-下采样后的上采样的"><span class="toc-number">15.2.1.</span> <span class="toc-text">向下采样，将下采样再上采样，然后用原图-下采样后的上采样的</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#轮廓检测"><span class="toc-number">16.</span> <span class="toc-text">轮廓检测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#image-contours-hierarchy-cv2-findContours-image-mode-cv2-RETR-TREE-method-cv2-CHAIN-APPROX-SIMPLE"><span class="toc-number">16.1.</span> <span class="toc-text">image, contours, hierarchy = cv2.findContours(image, mode=cv2.RETR_TREE, method=cv2.CHAIN_APPROX_SIMPLE)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#轮廓绘制"><span class="toc-number">16.2.</span> <span class="toc-text">轮廓绘制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cv2-drawContours-“图片，绘制之后会保存在图片上”-“轮廓点”-“-1：代表所有的点；轮廓点是有很多的，-1是全部绘制，1是只绘制index-1的轮廓点”-“颜色”-“线条宽度”"><span class="toc-number">16.3.</span> <span class="toc-text">cv2.drawContours(“图片，绘制之后会保存在图片上”, “轮廓点”, “-1：代表所有的点；轮廓点是有很多的，-1是全部绘制，1是只绘制index == 1的轮廓点”, “颜色”, “线条宽度”)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#轮廓近似"><span class="toc-number">16.4.</span> <span class="toc-text">轮廓近似</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#边界矩形"><span class="toc-number">16.5.</span> <span class="toc-text">边界矩形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外接圆"><span class="toc-number">16.6.</span> <span class="toc-text">外接圆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加文字"><span class="toc-number">16.7.</span> <span class="toc-text">添加文字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#得到mask"><span class="toc-number">16.8.</span> <span class="toc-text">得到mask</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#针对于双峰的操作"><span class="toc-number">17.</span> <span class="toc-text">针对于双峰的操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#直方图"><span class="toc-number">18.</span> <span class="toc-text">直方图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#cv2-calcHist-image-channels-mask-histSize-ranges"><span class="toc-number">18.1.</span> <span class="toc-text">cv2.calcHist(image, channels=, mask=, histSize=, ranges=)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#channels-0-B-1-G-2-R"><span class="toc-number">18.2.</span> <span class="toc-text">channels: [0] B, [1] G, [2] R,</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mask-蒙版，可以只计算蒙版内的直方图"><span class="toc-number">18.3.</span> <span class="toc-text">mask: 蒙版，可以只计算蒙版内的直方图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#histSize-展示详细程度"><span class="toc-number">18.4.</span> <span class="toc-text">histSize: 展示详细程度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ranges-展示范围"><span class="toc-number">18.5.</span> <span class="toc-text">ranges: 展示范围</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#傅里叶变换"><span class="toc-number">19.</span> <span class="toc-text">傅里叶变换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#得到灰度图能表现的形式"><span class="toc-number">20.</span> <span class="toc-text">得到灰度图能表现的形式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#低通滤波"><span class="toc-number">20.1.</span> <span class="toc-text">低通滤波</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#得到中心位置"><span class="toc-number">21.</span> <span class="toc-text">得到中心位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#低通滤波-1"><span class="toc-number">22.</span> <span class="toc-text">低通滤波</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IDFT"><span class="toc-number">23.</span> <span class="toc-text">IDFT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#高通滤波"><span class="toc-number">23.1.</span> <span class="toc-text">高通滤波</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#得到中心位置-1"><span class="toc-number">24.</span> <span class="toc-text">得到中心位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#低通滤波-2"><span class="toc-number">25.</span> <span class="toc-text">低通滤波</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IDFT-1"><span class="toc-number">26.</span> <span class="toc-text">IDFT</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#角点检测"><span class="toc-number">27.</span> <span class="toc-text">角点检测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#cv2-cornerHarris-src-blockSize-ksize-k"><span class="toc-number">27.1.</span> <span class="toc-text">cv2.cornerHarris(src=,blockSize=,ksize=,k=)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#blockSize-角点检测中指定区域的大小"><span class="toc-number">27.2.</span> <span class="toc-text">blockSize: 角点检测中指定区域的大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ksize-Sobel求导中使用的窗口大小"><span class="toc-number">27.3.</span> <span class="toc-text">ksize: Sobel求导中使用的窗口大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k-取值参数-0-04-0-06"><span class="toc-number">27.4.</span> <span class="toc-text">k: 取值参数[0.04, 0.06]</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图像特征-SIFT"><span class="toc-number">28.</span> <span class="toc-text">图像特征-SIFT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#只有3-4-1以下的可以，高版本已经把这个方法列入专利"><span class="toc-number">28.1.</span> <span class="toc-text">只有3.4.1以下的可以，高版本已经把这个方法列入专利</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#特征匹配"><span class="toc-number">29.</span> <span class="toc-text">特征匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Brute-Force-蛮力匹配"><span class="toc-number">29.1.</span> <span class="toc-text">Brute-Force 蛮力匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-匹配"><span class="toc-number">29.1.1.</span> <span class="toc-text">1-1 匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#k对最佳匹配"><span class="toc-number">29.1.2.</span> <span class="toc-text">k对最佳匹配</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#背景建模"><span class="toc-number">30.</span> <span class="toc-text">背景建模</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#混合高斯模型学习方法"><span class="toc-number">30.1.</span> <span class="toc-text">混合高斯模型学习方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建混合高斯模型用于背景建模"><span class="toc-number">30.1.1.</span> <span class="toc-text">创建混合高斯模型用于背景建模</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#角点检测-1"><span class="toc-number">31.</span> <span class="toc-text">角点检测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#返回所有检测特征点，需要输入图像，角点最大数量（效率），品质因子（特征值越大越好，来筛选）"><span class="toc-number">31.1.</span> <span class="toc-text">返回所有检测特征点，需要输入图像，角点最大数量（效率），品质因子（特征值越大越好，来筛选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#距离相当于这区间有比这个角点强的，就不要这个弱的了"><span class="toc-number">31.2.</span> <span class="toc-text">距离相当于这区间有比这个角点强的，就不要这个弱的了</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#光流估计"><span class="toc-number">32.</span> <span class="toc-text">光流估计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#cv2-calcOpticalFlowPyrLK-prevImg-nextImg-prevPts-nextPts"><span class="toc-number">32.1.</span> <span class="toc-text">cv2.calcOpticalFlowPyrLK(prevImg=, nextImg=, prevPts=, nextPts=)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#prevImg-前一帧图像"><span class="toc-number">32.2.</span> <span class="toc-text">prevImg: 前一帧图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nextImg-后一帧图像"><span class="toc-number">32.3.</span> <span class="toc-text">nextImg: 后一帧图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#prevPts-待跟踪的特征点向量"><span class="toc-number">32.4.</span> <span class="toc-text">prevPts: 待跟踪的特征点向量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nextPts-输出跟踪点的特征点向量"><span class="toc-number">32.5.</span> <span class="toc-text">nextPts: 输出跟踪点的特征点向量</span></a></li></ol></li></ol>
+            </div>
+        </section>
+    
 
     <section class="article typo">
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import cv2  </span><br><span class="line">import numpy as np  </span><br><span class="line">import matplotlib.pyplot as plt&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+
+        <div class="article-entry" itemprop="articleBody">
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import cv2  </span><br><span class="line">import numpy as np  </span><br><span class="line">import matplotlib.pyplot as plt&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
 <h1 id="读取图片"><a href="#读取图片" class="headerlink" title="读取图片"></a>读取图片</h1><p><code>image = cv2.imread(&#39;image.jpg&#39;,flags=cv2.IMREAD_COLOR)</code></p>
 <h1 id="边界填充"><a href="#边界填充" class="headerlink" title="边界填充"></a>边界填充</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repImage1 = cv2.copyMakeBorder(image, top=50, bottom=50, left=50, right=50, borderType=cv2.BORDER_CONSTANT)</span><br></pre></td></tr></table></figure>
 <h2 id="borderType有"><a href="#borderType有" class="headerlink" title="borderType有"></a>borderType有</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cv2.BORDER_CONSTANT  </span><br><span class="line">cv2.BORDER_DEFAULT  </span><br><span class="line">cv2.BORDER_ISOLATED  </span><br><span class="line">cv2.BORDER_REFLECT  </span><br><span class="line">cv2.BORDER_REFLECT101  </span><br><span class="line">cv2.BORDER_REFLECT_101  </span><br><span class="line">cv2.BORDER_REPLICATE  </span><br><span class="line">cv2.BORDER_TRANSPARENT  </span><br><span class="line">cv2.BORDER_WRAP</span><br></pre></td></tr></table></figure>
@@ -228,64 +229,45 @@
 <h1 id="背景建模"><a href="#背景建模" class="headerlink" title="背景建模"></a>背景建模</h1><h2 id="混合高斯模型学习方法"><a href="#混合高斯模型学习方法" class="headerlink" title="混合高斯模型学习方法"></a>混合高斯模型学习方法</h2><h3 id="创建混合高斯模型用于背景建模"><a href="#创建混合高斯模型用于背景建模" class="headerlink" title="创建混合高斯模型用于背景建模"></a>创建混合高斯模型用于背景建模</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fgbg = cv2.createBackgroundSubtractorMOG2()</span><br><span class="line">fgmask = fgbg.apply(image)</span><br></pre></td></tr></table></figure>
 <h1 id="角点检测-1"><a href="#角点检测-1" class="headerlink" title="角点检测"></a>角点检测</h1><h2 id="返回所有检测特征点，需要输入图像，角点最大数量（效率），品质因子（特征值越大越好，来筛选）"><a href="#返回所有检测特征点，需要输入图像，角点最大数量（效率），品质因子（特征值越大越好，来筛选）" class="headerlink" title="返回所有检测特征点，需要输入图像，角点最大数量（效率），品质因子（特征值越大越好，来筛选）"></a>返回所有检测特征点，需要输入图像，角点最大数量（效率），品质因子（特征值越大越好，来筛选）</h2><h2 id="距离相当于这区间有比这个角点强的，就不要这个弱的了"><a href="#距离相当于这区间有比这个角点强的，就不要这个弱的了" class="headerlink" title="距离相当于这区间有比这个角点强的，就不要这个弱的了"></a>距离相当于这区间有比这个角点强的，就不要这个弱的了</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">corners = cv2.goodFeaturesToTrack(image, maxCorners=100, qualityLevel=0.3, minDistance=7, mask=None)</span><br></pre></td></tr></table></figure>
 <h1 id="光流估计"><a href="#光流估计" class="headerlink" title="光流估计"></a>光流估计</h1><h2 id="cv2-calcOpticalFlowPyrLK-prevImg-nextImg-prevPts-nextPts"><a href="#cv2-calcOpticalFlowPyrLK-prevImg-nextImg-prevPts-nextPts" class="headerlink" title="cv2.calcOpticalFlowPyrLK(prevImg=, nextImg=, prevPts=, nextPts=)"></a>cv2.calcOpticalFlowPyrLK(prevImg=, nextImg=, prevPts=, nextPts=)</h2><h2 id="prevImg-前一帧图像"><a href="#prevImg-前一帧图像" class="headerlink" title="prevImg: 前一帧图像"></a>prevImg: 前一帧图像</h2><h2 id="nextImg-后一帧图像"><a href="#nextImg-后一帧图像" class="headerlink" title="nextImg: 后一帧图像"></a>nextImg: 后一帧图像</h2><h2 id="prevPts-待跟踪的特征点向量"><a href="#prevPts-待跟踪的特征点向量" class="headerlink" title="prevPts: 待跟踪的特征点向量"></a>prevPts: 待跟踪的特征点向量</h2><h2 id="nextPts-输出跟踪点的特征点向量"><a href="#nextPts-输出跟踪点的特征点向量" class="headerlink" title="nextPts: 输出跟踪点的特征点向量"></a>nextPts: 输出跟踪点的特征点向量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nextPts, status, err = cv2.calcOpticalFlowPyrLK(prevImg=image, nextImg=image, prevPts=pk, nextPts=None, winSize=(15, 15))</span><br></pre></td></tr></table></figure>
-        
+        </div>
 
         
-            <div class="full-width auto-padding tags">
+            <div class="article-tags tags">
                 
                     <a href="/tags/opencv/"><i class="fa fa-tag"></i>&nbsp;&nbsp;opencv</a>
                 
             </div>
         
-    </section>
-</article>
 
-        </div>
-    
-        <div class='post-wrapper'>
-    <article class="post reveal">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2019/06/06/Python-1/">
+        
+            <div class="art-item-footer">
                 
-                    Python-1
                 
-            </a>
-        </h2>
-        <time>
-            2019-06-06 星期四
-        </time>
-        
-    
-    <div class='cats'>
-        <a href="/categories/Python/">Python</a>
-    </div>
-
-
-    </section>
-
-    <section class="article typo">
-        <p>Q.调用方法带括号和不带括号的区别？<br>A.带括号返回的是计算结果，是一个值；不带括号返回的是这个函数体。
-        
-            <div class="readmore">
-                <a href="/2019/06/06/Python-1/" class="flat-box">READ MORE</a>
-            </div>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/Python开发/"><i class="fa fa-tag"></i>&nbsp;&nbsp;Python开发</a>
+                    <span class="art-item-right">
+                        <a href="/2019/07/21/每天哈哈/" rel="next" title="每天哈哈">
+                            每天哈哈
+                        </a>&nbsp;
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </span>
                 
             </div>
         
+
     </section>
+
 </article>
 
-        </div>
-    
-</section>
+<br>
 
+<!-- 显示推荐文章和评论 -->
+
+
+<script>
+    window.subData = {
+        title: 'opencv总结',
+        tools: true
+    }
+</script>
 
 
       </div>
@@ -395,6 +377,10 @@ if(!ROOT.endsWith('/'))ROOT += '/';
 <script src="/js/search.js"></script>
 <script src="/js/app.js"></script>
 
+
+    
+    
+    
 
 
   <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->

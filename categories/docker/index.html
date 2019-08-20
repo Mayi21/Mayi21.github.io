@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Category: Docker | wiki</title>
+  <title>Category: docker | wiki</title>
   <meta name="description" content="坚持不懈的坚持" />
   <meta name="keywords" content="" />
   <meta name="HandheldFriendly" content="True" />
@@ -15,7 +15,7 @@
   <meta name="description" content="坚持不懈的坚持">
 <meta property="og:type" content="website">
 <meta property="og:title" content="wiki">
-<meta property="og:url" content="https://mayi21.github.io/categories/Docker/index.html">
+<meta property="og:url" content="https://mayi21.github.io/categories/docker/index.html">
 <meta property="og:site_name" content="wiki">
 <meta property="og:description" content="坚持不懈的坚持">
 <meta property="og:locale" content="zh-CN">
@@ -126,7 +126,7 @@
       <div class='l_main'>
         
     <script>
-        window.subData= { title:'category : Docker'}
+        window.subData= { title:'category : docker'}
     </script>
 
 
@@ -137,36 +137,36 @@
     <article class="post reveal">
     <section class="meta">
         <h2 class="title">
-            <a href="/2019/07/21/docker/">
+            <a href="/2019/03/11/创建支持ssh服务的镜像/">
                 
-                    Docker-1
+                    创建支持ssh的镜像服务
                 
             </a>
         </h2>
         <time>
-            2019-07-21 星期日
+            2019-03-11 星期一
         </time>
         
     
     <div class='cats'>
-        <a href="/categories/Docker/">Docker</a>
+        <a href="/categories/docker/">docker</a>
     </div>
 
 
     </section>
 
     <section class="article typo">
-        <p>1.下载镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull ubuntu</span><br><span class="line">sudo docker pull ubuntu:14.04 (by appoint tag pull given image)</span><br><span class="line">(以上命令相对应于) sudo docker pull registry.hub.docker.com/ubuntu:latest (下载注册服务器为registry.hub.docker.com中ubuntu仓库的下载标记为latest的镜像)</span><br></pre></td></tr></table></figure></p>
+        <p>1.先安装docker,这里不再赘述<br>2.使用ubuntu镜像来创建容器:<code>docker pull ubuntu</code>,然后启动容器:<code>docker run -it ubuntu /bin/bash</code>
         
             <div class="readmore">
-                <a href="/2019/07/21/docker/" class="flat-box">READ MORE</a>
+                <a href="/2019/03/11/创建支持ssh服务的镜像/" class="flat-box">READ MORE</a>
             </div>
         
 
         
             <div class="full-width auto-padding tags">
                 
-                    <a href="/tags/Docker开发/"><i class="fa fa-tag"></i>&nbsp;&nbsp;Docker开发</a>
+                    <a href="/tags/docker/"><i class="fa fa-tag"></i>&nbsp;&nbsp;docker</a>
                 
             </div>
         
@@ -203,7 +203,7 @@
     
         <li><a class="flat-box" href="/categories/ML/"><div class='name'>ML</div><div class='badge'>1</div></a></li>
     
-        <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
+        <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>2</div></a></li>
     
         <li><a class="flat-box" href="/categories/Spark/"><div class='name'>Spark</div><div class='badge'>1</div></a></li>
     
@@ -226,7 +226,7 @@
 <div class="m_widget tagcloud">
     <div class="header"><i class="fa fa-tags" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
     <div class='content'>
-        <a href="/tags/Docker开发/" style="font-size: 14px; color: #999">Docker开发</a> <a href="/tags/Java开发/" style="font-size: 14px; color: #999">Java开发</a> <a href="/tags/Python开发/" style="font-size: 19px; color: #777">Python开发</a> <a href="/tags/Spark开发/" style="font-size: 14px; color: #999">Spark开发</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hadoop/" style="font-size: 19px; color: #777">hadoop</a> <a href="/tags/hexo建站/" style="font-size: 14px; color: #999">hexo建站</a> <a href="/tags/机器学习/" style="font-size: 14px; color: #999">机器学习</a> <a href="/tags/杂货/" style="font-size: 24px; color: #555">杂货</a>
+        <a href="/tags/Docker开发/" style="font-size: 14px; color: #999">Docker开发</a> <a href="/tags/Java开发/" style="font-size: 14px; color: #999">Java开发</a> <a href="/tags/Python开发/" style="font-size: 19px; color: #777">Python开发</a> <a href="/tags/Spark开发/" style="font-size: 14px; color: #999">Spark开发</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hadoop/" style="font-size: 19px; color: #777">hadoop</a> <a href="/tags/hexo建站/" style="font-size: 14px; color: #999">hexo建站</a> <a href="/tags/opencv/" style="font-size: 14px; color: #999">opencv</a> <a href="/tags/机器学习/" style="font-size: 14px; color: #999">机器学习</a> <a href="/tags/杂货/" style="font-size: 24px; color: #555">杂货</a>
     </div>
 </div>
 
@@ -276,6 +276,22 @@ var ALGOLIA_API_KEY = "";
 var ALGOLIA_APP_ID = "";
 var ALGOLIA_INDEX_NAME = "";
 var AZURE_SERVICE_NAME = "";
+var AZURE_INDEX_NAME = "";
+var AZURE_QUERY_KEY = "";
+var BAIDU_API_ID = "";
+var SEARCH_SERVICE = "hexo";
+var ROOT = "/"||"/";
+if(!ROOT.endsWith('/'))ROOT += '/';
+</script>
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+
+
+  <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+E_NAME = "";
 var AZURE_INDEX_NAME = "";
 var AZURE_QUERY_KEY = "";
 var BAIDU_API_ID = "";
