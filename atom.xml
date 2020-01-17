@@ -245,7 +245,7 @@
     <link href="https://mayi21.github.io/2019/03/11/%E5%88%9B%E5%BB%BA%E6%94%AF%E6%8C%81ssh%E6%9C%8D%E5%8A%A1%E7%9A%84%E9%95%9C%E5%83%8F/"/>
     <id>https://mayi21.github.io/2019/03/11/创建支持ssh服务的镜像/</id>
     <published>2019-03-11T11:18:14.028Z</published>
-    <updated>2019-03-23T14:24:03.576Z</updated>
+    <updated>2020-01-17T03:55:34.451Z</updated>
     
     <content type="html"><![CDATA[<p>1.先安装docker,这里不再赘述<br>2.使用ubuntu镜像来创建容器:<code>docker pull ubuntu</code>,然后启动容器:<code>docker run -it ubuntu /bin/bash</code><a id="more"></a><br>3.更新一下软件源:<code>apt-get update</code>  <code>apt-get upgrade</code>,然后进行安装<code>apt-get install openssh-server</code><br>4.要是想正常启动服务,需要目录/var/run/sshd存在,手动创建,并启动服务:<code>mkdir -p /var/run/sshd</code>  <code>/usr/sbin/sshd -D &amp;</code><br>5.查看容器的22端口:<code>netstat -tunlp</code>,如果提示命令没有安装,则选择安装:<code>apt-get install net-tools</code>,然后在执行命令就行了.此时端口应该是处于监听状态.<br>6.在root用户目录下创建.ssh目录,并复制需要登录的公钥信息（一般在本地主机用户目录下的.ssh/id_rsa.pub）,先创建文件夹:<code>mkdir root/.ssh</code>,然后复制公钥信息到authorized_keys中,<code>vim /root/.ssh/authorized_keys</code><br>7.创建自启动ssh服务的可执行文件run.sh,并添加可执行权限:<code>vim /run.sh</code>  <code>chmod +x run.sh</code>,run.sh脚本的内容为:<br><code>#!/bin/bash</code><br><code>/usr/sbin/sshd -D</code><br>8.使用<code>Ctrl + p + q</code>退出但并不关闭容器.<br>9.用docker commit命令保存为一个新的sshd:ubuntu镜像:<br><code>docker commit &lt;Image Id&gt; sshd:ubuntu</code>,使用<code>docker images</code>查看本地的镜像<br>10.启动容器,并添加映射端口10022 -&gt; 22,其中10022是宿主机的端口,22是容器的SSH服务监听端口:<code>docker run -p 10022:22 -d sshd:ubuntu /run.sh</code>,启动成功后,在宿主机上看到容器的运行的详细信息.<br>11.在宿主机（192.168.1.200）上或其他主机,通过ssh服务访问10022端口来登录容器:<code>ssh 192.168.1.200 -p 10022</code><br>参考:Docker技术入门与实践</p>]]></content>
     
@@ -255,10 +255,10 @@
     
     </summary>
     
-      <category term="docker" scheme="https://mayi21.github.io/categories/docker/"/>
+      <category term="Docker" scheme="https://mayi21.github.io/categories/Docker/"/>
     
     
-      <category term="docker" scheme="https://mayi21.github.io/tags/docker/"/>
+      <category term="Docker开发" scheme="https://mayi21.github.io/tags/Docker%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -267,7 +267,7 @@
     <link href="https://mayi21.github.io/2019/02/17/Tensorflow%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB%E5%99%A8/"/>
     <id>https://mayi21.github.io/2019/02/17/Tensorflow构建自定义的图片分类器/</id>
     <published>2019-02-17T10:24:22.525Z</published>
-    <updated>2019-03-23T14:23:24.441Z</updated>
+    <updated>2020-01-17T03:54:40.437Z</updated>
     
     <content type="html"><![CDATA[<h3 id="操作环境-Ubuntu-18-04-Tensorflow-1-7"><a href="#操作环境-Ubuntu-18-04-Tensorflow-1-7" class="headerlink" title="操作环境:Ubuntu 18.04 Tensorflow 1.7"></a>操作环境:Ubuntu 18.04 Tensorflow 1.7</h3><p>1.安装配置Tensorflow或者利用Docker.Tensorflow的安装这里不予多介绍,主要介绍一下Docker的用法.<br>Docker的操作命令如下: <a id="more"></a><br><code>docker pull tensorflow/tensorflow</code><br><code>#指定宿主机的目录和容器的目录,实现文件共享</code><br><code>docker run -it -v /root:/root tensorflow/tensorflow</code><br>2.克隆Git<br><code>git clone https://github.com/googlecodelabs/tensorflow-for-poets-2</code><br><code>cd tensorflow-for-poets-2</code><br>3.准备训练数据,将这些数据存放在tf_files文件夹下,这些数据要求:这个tf_files/&lt;自定义文件夹&gt;下面是子文件夹,子文件夹下面是同种类型的图片(如果是人,那该文件下就是这个人的所有图片,子文件夹的名字就是这些图片的名字)<br>4.准备训练数据.定义图片的大小,<br><code>export IMAGE_SIZE=224</code><br><code>export ARCHITECTURE=&quot;mobilenet_0.50_${IMAGE_SIZE}&quot;</code><br>开始训练.<br><code>python -m scripts.retrain --bottleneck_dir=tf_files/bottlenecks --how_many_training_steps=500 --model_dir=tf_files/models/ --summaries_dir=tf_files/training_summaries/&quot;${ARCHITECTURE}&quot; --output_graph=tf_files/retrained_graph.pb --output_labels=tf_files/retrained_labels.txt --architecture=&quot;${ARCHITECTURE}&quot; --image_dir=tf_files/&lt;自定义的文件夹&gt;</code><br>—how_many_training_steps=500 这个是训练多少步.这里可以不用这个命令,使用默认步数4000步<br>5.验证数据.<br><code>python -m scripts.label_image --graph=tf_files/retrained_graph.pb --image=&lt;自己想检测的图片&gt;</code><br>然后下面就会出现验证的结果.</p>]]></content>
     
@@ -277,7 +277,7 @@
     
     </summary>
     
-      <category term="python" scheme="https://mayi21.github.io/categories/python/"/>
+      <category term="Python" scheme="https://mayi21.github.io/categories/Python/"/>
     
     
       <category term="Tensorflow" scheme="https://mayi21.github.io/tags/Tensorflow/"/>
@@ -311,7 +311,7 @@
     <link href="https://mayi21.github.io/2018/07/21/%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AEjupyter/"/>
     <id>https://mayi21.github.io/2018/07/21/配置远程访问jupyter/</id>
     <published>2018-07-21T09:58:08.241Z</published>
-    <updated>2019-06-08T09:04:09.361Z</updated>
+    <updated>2020-01-17T03:55:10.046Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言-jupyternotebook是一款在线的python编程环境-交互式的编程环境-支持四十多种语言-对于爬虫和分析数据-这样的操作十分方便-众所周知-Jupyter是一个WEB应用-本篇文章教大家在服务器端部署Jupyter并远程访问"><a href="#前言-jupyternotebook是一款在线的python编程环境-交互式的编程环境-支持四十多种语言-对于爬虫和分析数据-这样的操作十分方便-众所周知-Jupyter是一个WEB应用-本篇文章教大家在服务器端部署Jupyter并远程访问" class="headerlink" title="前言:jupyternotebook是一款在线的python编程环境.交互式的编程环境,支持四十多种语言.对于爬虫和分析数据,这样的操作十分方便.众所周知:Jupyter是一个WEB应用.本篇文章教大家在服务器端部署Jupyter并远程访问."></a>前言:jupyternotebook是一款在线的python编程环境.交互式的编程环境,支持四十多种语言.对于爬虫和分析数据,这样的操作十分方便.众所周知:Jupyter是一个WEB应用.本篇文章教大家在服务器端部署Jupyter并远程访问.</h2><p>1.服务器环境:大家可以自行在网上购买服务器,本篇文章使用的服务器环境是Ubuntu 16.04.1 LTS x86_64.<br>2.安全规则:添加安全规则,开放8888端口,记得同时开放22端口,以便在putty,xshell等软件上登陆;然后关联服务器实例.<a id="more"></a><br>3.使用wget下载anaconda,在<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">清华大学开源软件镜像站</a>寻找相应的版本,复制下载链接,然后wget便可.<br>4.使用sh Anaconda3-5.1.0-Linux-x86_64.sh安装Anaconda,安装一路yes便可,安装完成后重启终端,尝试<code>conda</code>.<br>5.输入<code>jupyter notebook --generate-config</code>,生成默认的jupyter配置文件<br>6.安装ipython,<code>sudo apt-get install ipython3</code>.<br>7.启动ipython<code>ipthon</code>,输入<code>from notebook.auth import passwd</code>回车,输入<code>passwd()</code>,此时要求输入密码,这个密码为登陆服务器端jupyter的密码.两次输入后得到密钥(以sha开头的).<br>8.<code>vim /home/ubuntu/.jupyter/jupyter_notebook_config.py</code><br>9.在<code># Configuration file for jupyter-notebook.</code>后另起一行添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.ip=&apos;*&apos;</span><br><span class="line">c.NotebookApp.password = u&apos;密钥&apos;</span><br><span class="line">c.NotebookApp.open_browser = False</span><br><span class="line">c.NotebookApp.port =8888</span><br></pre></td></tr></table></figure></p><p>保存退出.<br>10.安装自动补码,在jupyter notebook未运行的情况下操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install jupyter_contrib_nbextensions</span><br><span class="line">jupyter contrib nbextension install --user --skip-running-check</span><br></pre></td></tr></table></figure></p><p>然后在 Clusters旁边多出 Nbextensions点击进去,找到 Hinterland,打勾即可<br>10.运行Jupyter Notebook <code>jupyter notebook</code>,后台运行<code>nohup jupyter notebook --allow-root &gt; jnotebook.out 2&gt;&amp;1 &amp;</code><br>11.在本地电脑浏览器上输入[<a href="http://you" target="_blank" rel="noopener">http://you</a> server ip:8888]<br>12.输入上面设置的密码.</p>]]></content>
     
@@ -321,7 +321,7 @@
     
     </summary>
     
-      <category term="python" scheme="https://mayi21.github.io/categories/python/"/>
+      <category term="Python" scheme="https://mayi21.github.io/categories/Python/"/>
     
     
       <category term="Python开发" scheme="https://mayi21.github.io/tags/Python%E5%BC%80%E5%8F%91/"/>
@@ -333,9 +333,9 @@
     <link href="https://mayi21.github.io/2018/06/26/hexo%E5%BB%BA%E7%AB%99%E7%AC%AC%E4%B8%80%E6%AD%A5-1/"/>
     <id>https://mayi21.github.io/2018/06/26/hexo建站第一步-1/</id>
     <published>2018-06-26T14:16:33.965Z</published>
-    <updated>2019-03-23T14:21:46.239Z</updated>
+    <updated>2020-01-17T03:53:45.573Z</updated>
     
-    <content type="html"><![CDATA[<p>1.下载git和node.js<br>2.打开GitBash<br>3.下载并安装hexo<a id="more"></a><br>4.新建一个文件夹,hexo inital先初始化一下该目录<br>5.自己找合适的主题<br>6.在git bash中运行<code>hexo g</code>生成本地文件,<code>hexo d</code>将其发布到github上面<br>7.在source/_posts/下面写文章,我用的是MarkdownPad2,只要熟悉一下语法就行    </p><hr><p>今天主要谈一下绑定域名<br>1.申请域名,闲着没事干,免费申请了一年的域名,<a href="http://www.freenom.com" target="_blank" rel="noopener">freenom</a><br>2.介绍一下主要怎么操作,先“寻找一个新的免费域名”,点击“检查可用性”,会出来一些免费的域名.<br>3.自己选其所好,找到一个加入购物车<br>4.去购物车结帐,都是不要钱的.点击“继续”,<br>5.这时候应该要求填写个人信息,这里提供<a href="https://www.fakenamegenerator.com/" target="_blank" rel="noopener">随机生成身份</a>.选择想要的信息.<br>6.邮箱要填自己的,然后邮箱收件箱会收到一封邮件,要求你注册一下.<br>7.你注册好后,在上面网站继续登录.你就会发现你有这个域名了（如果没有,你再搜一下,重新添加进你的购物车）<br>8.有域名后,在你的博客source目录下,添加名字为<code>CNAME</code>（注意没有后缀）的文件,里面的内容就是你的域名.然后<code>hexo g</code>和<code>hexo d</code>下.继而进入DNSPOD把自己的域名解析一下.<br>9.主要先登录,qq,微信都可以.登录上,进入管理控制台,添加自己的域名到域名解析.添加记录的每一项,系统都会提示代表意思,这里主要解释记录类型<br>A记录:地址记录,用来指定域名的IP地址<br>CNAME记录:如果需要将域名指向另一个域名,再由另一个域名提供IP地址,就需要添加CNAME记录<br>NS记录:域名服务器记录,如果需要把子域名交给其他DNS服务商解析,就需要添加NS记录<br>上面的NS记录是系统默认添加的.<br>A记录就是指向对应IP地址,这里的<code>192.30.252.153</code>和<code>192.30.252.154</code>是github的服务器IP地址.<br>CNAME记录这里可填可不填,因为A记录已经将<code>mayi21.tk</code>和<code>mayi21.github.io</code>的域名统一为一个IP地址了<br>有一种情况就是为了提高访问速度,要区分国内国外不同用户使用不同的网站进行重定向需要添加对应的CNAME记录.<br>10.然后继续输入你的<code>name.github.io</code>,就会跳转到你绑定的域名中.</p><hr><p>google收录<br>1.打开<a href="https://www.google.com/webmasters" target="_blank" rel="noopener">谷歌搜索引擎验证</a><br>2.输入自己的博客地址,添加属性,我用的是域名服务商验证,把google提供的文本,按照提示添加进入DNSPOD就行了<br>3.点击验证,应该就可以成功了</p>]]></content>
+    <content type="html"><![CDATA[<p>1.下载git和node.js<br>2.打开GitBash<br>3.下载并安装hexo<a id="more"></a><br>4.新建一个文件夹,hexo inital先初始化一下该目录<br>5.自己找合适的主题<br>6.在git bash中运行<code>hexo g</code>生成本地文件,<code>hexo d</code>将其发布到github上面<br>7.在source/_posts/下面写文章,我用的是MarkdownPad2,只要熟悉一下语法就行<br>day20200117：对帖子进行一下更新：主要是material-x主题支持latex。按照原先的配置下来，是不支持latex的(可能是自身的原因，没有配置好)，然后在捯饬的过程中，有了解决办法。<br>1.应该是主题下面没有math.ejs，但是由于某些问题，没有继续往下面走。<br>2.删除了早先的hexo-renderer-marked引擎<code>npm uninstall hexo-renderer-marked --save</code>，更换为hexo-renderer-kramed引擎<code>npm install hexo-renderer-kramed --save</code>.其次又停止使用hexo-math引擎<code>npm uninstall hexo-math --save</code>,更换为hexo-renderer-mathjax引擎<code>npm install hexo-renderer-mathjax --save</code>.<br>3.打开/node_modules/hexo-renderer-mathjax/mathjax.html文件，将早先最后一行的<script>注释掉，换为`<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><code>即可。  4.在主题下启用mathjax引擎</code>mathjax: true<code>，在文章中要开启mathjax引擎，</code>mathjax: true`。  </p><h2 id="5-还有关于更改默认转义规则。"><a href="#5-还有关于更改默认转义规则。" class="headerlink" title="5.还有关于更改默认转义规则。"></a>5.还有关于更改默认转义规则。</h2><p>今天主要谈一下绑定域名<br>1.申请域名,闲着没事干,免费申请了一年的域名,<a href="http://www.freenom.com" target="_blank" rel="noopener">freenom</a><br>2.介绍一下主要怎么操作,先“寻找一个新的免费域名”,点击“检查可用性”,会出来一些免费的域名.<br>3.自己选其所好,找到一个加入购物车<br>4.去购物车结帐,都是不要钱的.点击“继续”,<br>5.这时候应该要求填写个人信息,这里提供<a href="https://www.fakenamegenerator.com/" target="_blank" rel="noopener">随机生成身份</a>.选择想要的信息.<br>6.邮箱要填自己的,然后邮箱收件箱会收到一封邮件,要求你注册一下.<br>7.你注册好后,在上面网站继续登录.你就会发现你有这个域名了（如果没有,你再搜一下,重新添加进你的购物车）<br>8.有域名后,在你的博客source目录下,添加名字为<code>CNAME</code>（注意没有后缀）的文件,里面的内容就是你的域名.然后<code>hexo g</code>和<code>hexo d</code>下.继而进入DNSPOD把自己的域名解析一下.<br>9.主要先登录,qq,微信都可以.登录上,进入管理控制台,添加自己的域名到域名解析.添加记录的每一项,系统都会提示代表意思,这里主要解释记录类型<br>A记录:地址记录,用来指定域名的IP地址<br>CNAME记录:如果需要将域名指向另一个域名,再由另一个域名提供IP地址,就需要添加CNAME记录<br>NS记录:域名服务器记录,如果需要把子域名交给其他DNS服务商解析,就需要添加NS记录<br>上面的NS记录是系统默认添加的.<br>A记录就是指向对应IP地址,这里的<code>192.30.252.153</code>和<code>192.30.252.154</code>是github的服务器IP地址.<br>CNAME记录这里可填可不填,因为A记录已经将<code>mayi21.tk</code>和<code>mayi21.github.io</code>的域名统一为一个IP地址了<br>有一种情况就是为了提高访问速度,要区分国内国外不同用户使用不同的网站进行重定向需要添加对应的CNAME记录.<br>10.然后继续输入你的<code>name.github.io</code>,就会跳转到你绑定的域名中.</p><hr><p>google收录<br>1.打开<a href="https://www.google.com/webmasters" target="_blank" rel="noopener">谷歌搜索引擎验证</a><br>2.输入自己的博客地址,添加属性,我用的是域名服务商验证,把google提供的文本,按照提示添加进入DNSPOD就行了<br>3.点击验证,应该就可以成功了</p>]]></content>
     
     <summary type="html">
     
