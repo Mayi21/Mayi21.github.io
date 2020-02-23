@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="wiki">
 <meta property="og:description" content="Q.调用方法带括号和不带括号的区别？A.带括号返回的是计算结果，是一个值；不带括号返回的是这个函数体。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-09T13:22:49.898Z">
+<meta property="og:updated_time" content="2020-01-17T13:10:31.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-1">
 <meta name="twitter:description" content="Q.调用方法带括号和不带括号的区别？A.带括号返回的是计算结果，是一个值；不带括号返回的是这个函数体。">
@@ -149,7 +149,7 @@
         <section class="toc-wrapper">
             <div class="header"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
             <div class='content'>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#—"><span class="toc-number">1.</span> <span class="toc-text">—-</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#count-argument-返回的是argument出现的次数"><span class="toc-number">1.</span> <span class="toc-text">.count(argument):返回的是argument出现的次数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#map-function-something-iterable"><span class="toc-number">2.</span> <span class="toc-text">map(function, something_iterable)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#—"><span class="toc-number">2.1.</span> <span class="toc-text">—-</span></a></li></ol></li></ol>
             </div>
         </section>
     
@@ -161,7 +161,12 @@
 <hr>
 <p>华丽分割线</p>
 <hr>
-<p>1.list去重：<br>List(Set(List))  </p>
+<p>1.list去重：<br>List(Set(List))<br>快速构建list<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = [i for i in range(1, 10)]</span><br><span class="line">(或者)  </span><br><span class="line">def some_function(a):</span><br><span class="line">    return (a+5)/2</span><br><span class="line">a = [some_function(i) for i in range(10)]</span><br><span class="line">(这种用法)</span><br><span class="line">a = [i for i in range(20) if i%2 == 0]</span><br><span class="line">```  </span><br><span class="line">字典合并，如果键有相同的，第一个字典的值会被覆盖</span><br></pre></td></tr></table></figure></p>
+<p>dict1 = { ‘a’: 1, ‘b’: 2 }<br>dict2 = { ‘b’: 3, ‘c’: 4 }<br>merged = { <strong>dict1, </strong>dict2 }<br>print (merged)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">统计出现最多的数字</span><br></pre></td></tr></table></figure></p>
+<p>test = [1, 2, 3, 4, 2, 2, 3, 1, 4, 4, 4]</p>
+<h1 id="count-argument-返回的是argument出现的次数"><a href="#count-argument-返回的是argument出现的次数" class="headerlink" title=".count(argument):返回的是argument出现的次数"></a>.count(argument):返回的是argument出现的次数</h1><p>print(max(set(test), key = test.count))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用map()</span><br></pre></td></tr></table></figure></p>
+<h1 id="map-function-something-iterable"><a href="#map-function-something-iterable" class="headerlink" title="map(function, something_iterable)"></a>map(function, something_iterable)</h1><p>def upper(s):<br>    return s.upper()<br>mylist = list(map(upper, [‘sentence’, ‘fragment’]))<br>print(mylist)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用Counter</span><br></pre></td></tr></table></figure></p>
+<p>from collections import Counter<br>mylist = [1, 1, 2, 3, 4, 5, 5, 5, 6, 6]<br>c = Counter(mylist)<br>print(c)<br>```</p>
 <h2 id="—"><a href="#—" class="headerlink" title="—-"></a>—-</h2><p>1.math库的高等特殊函数<br>函数 | 数学表示 | 描述</p>
 <ul>
 <li>| :-: | -<br>math.erf(x) | $\frac{2}{\sqrt{\pi}}\lmoustache_{0}^{x}e^{-t^{2}}dt$ | 高斯误差，应用于概率论，统计学等领域<br>math.erfc(x) | $\frac{2}{\sqrt{\pi}}\lmoustache_{0}^{\infty}e^{-t^{2}}dt$ | 余补高斯误差函数，math.erfc(x)=1-math.erf(x)<br>math.gamma(x) | $\lmoustache_{0}^{\infty}x^{t-1}e^{-x}dx$ | 伽玛函数，也叫欧拉第二积分函数<br>math.lgamma(x) | ln(gamma(x)) | 伽马函数的自然对数  </li>
@@ -247,6 +252,8 @@
     
         <li><a class="flat-box" href="/categories/杂货/"><div class='name'>杂货</div><div class='badge'>3</div></a></li>
     
+        <li><a class="flat-box" href="/categories/测试/"><div class='name'>测试</div><div class='badge'>1</div></a></li>
+    
     </ul>
     
 
@@ -258,7 +265,7 @@
 <div class="m_widget tagcloud">
     <div class="header"><i class="fa fa-tags" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
     <div class='content'>
-        <a href="/tags/Docker开发/" style="font-size: 19px; color: #777">Docker开发</a> <a href="/tags/Java开发/" style="font-size: 14px; color: #999">Java开发</a> <a href="/tags/Python开发/" style="font-size: 19px; color: #777">Python开发</a> <a href="/tags/Spark开发/" style="font-size: 14px; color: #999">Spark开发</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/hadoop/" style="font-size: 19px; color: #777">hadoop</a> <a href="/tags/hexo建站/" style="font-size: 14px; color: #999">hexo建站</a> <a href="/tags/opencv/" style="font-size: 14px; color: #999">opencv</a> <a href="/tags/机器学习/" style="font-size: 14px; color: #999">机器学习</a> <a href="/tags/杂货/" style="font-size: 24px; color: #555">杂货</a>
+        <a href="/tags/Docker开发/" style="font-size: 19px; color: #777">Docker开发</a> <a href="/tags/Java开发/" style="font-size: 14px; color: #999">Java开发</a> <a href="/tags/Python开发/" style="font-size: 19px; color: #777">Python开发</a> <a href="/tags/Spark开发/" style="font-size: 14px; color: #999">Spark开发</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/hadoop/" style="font-size: 19px; color: #777">hadoop</a> <a href="/tags/hexo建站/" style="font-size: 14px; color: #999">hexo建站</a> <a href="/tags/opencv/" style="font-size: 14px; color: #999">opencv</a> <a href="/tags/机器学习/" style="font-size: 14px; color: #999">机器学习</a> <a href="/tags/杂货/" style="font-size: 24px; color: #555">杂货</a> <a href="/tags/测试/" style="font-size: 14px; color: #999">测试</a>
     </div>
 </div>
 
