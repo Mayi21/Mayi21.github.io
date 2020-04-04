@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mayi21.github.io/"/>
-  <updated>2019-08-22T11:22:09.672Z</updated>
+  <updated>2020-04-04T03:38:21.923Z</updated>
   <id>https://mayi21.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>资源合集</title>
+    <link href="https://mayi21.github.io/2020/04/04/%E5%88%86%E4%BA%AB/"/>
+    <id>https://mayi21.github.io/2020/04/04/分享/</id>
+    <published>2020-04-04T03:18:07.410Z</published>
+    <updated>2020-04-04T03:38:21.923Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="解放书签"><a href="#解放书签" class="headerlink" title="解放书签"></a>解放书签</h1><h2 id="1-无水印图片-自用"><a href="#1-无水印图片-自用" class="headerlink" title="1.无水印图片(自用)"></a>1.无水印图片(自用)</h2><h2 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h2><h2 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h2><a id="more"></a><p><img src="https://www.johanadam.workers.dev/Image/Bolg/ReleaseBookMarks/TrafficTaurusLionelMajzik_2400.jpg" alt><br><a href="https://apod.nasa.gov/apod/archivepix.html" target="_blank" rel="noopener">Nasa</a>,这里会每天更新一张图片.<br><img src="https://www.johanadam.workers.dev/Image/Bolg/ReleaseBookMarks/woman-in-grey-sports-bra-and-leggings-3844000.jpg" alt><br><a href="https://www.pexels.com/" target="_blank" rel="noopener">pexels</a>,才华横溢的摄影作者在这里免费分享最精彩的素材照片和视频.<br><img src="https://www.johanadam.workers.dev/Image/Bolg/ReleaseBookMarks/vitae-london-Y4LM8e_3BhI-unsplash.jpg" alt><br><a href="https://unsplash.com/" target="_blank" rel="noopener">unsplash</a>,Photos for everyone.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;解放书签&quot;&gt;&lt;a href=&quot;#解放书签&quot; class=&quot;headerlink&quot; title=&quot;解放书签&quot;&gt;&lt;/a&gt;解放书签&lt;/h1&gt;&lt;h2 id=&quot;1-无水印图片-自用&quot;&gt;&lt;a href=&quot;#1-无水印图片-自用&quot; class=&quot;headerlink&quot; title=&quot;1.无水印图片(自用)&quot;&gt;&lt;/a&gt;1.无水印图片(自用)&lt;/h2&gt;&lt;h2 id=&quot;2&quot;&gt;&lt;a href=&quot;#2&quot; class=&quot;headerlink&quot; title=&quot;2.&quot;&gt;&lt;/a&gt;2.&lt;/h2&gt;&lt;h2 id=&quot;3&quot;&gt;&lt;a href=&quot;#3&quot; class=&quot;headerlink&quot; title=&quot;3.&quot;&gt;&lt;/a&gt;3.&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="Other" scheme="https://mayi21.github.io/categories/Other/"/>
+    
+    
+      <category term="其他" scheme="https://mayi21.github.io/tags/%E5%85%B6%E4%BB%96/"/>
+    
+  </entry>
   
   <entry>
     <title>opencv总结</title>
